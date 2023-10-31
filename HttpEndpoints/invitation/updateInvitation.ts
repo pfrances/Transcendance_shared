@@ -24,6 +24,6 @@ export interface UpdateInvitationReponse {
   receiverId: number;
   status: InvitationStatus;
   kind: InvitationKind;
-  targetChat?: ChatInfo;
+  targetChatId?: number;
   targetGameId?: number;
 }

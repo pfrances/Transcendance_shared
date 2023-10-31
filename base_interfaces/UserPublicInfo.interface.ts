@@ -3,3 +3,7 @@ export interface UserPublicProfile {
   nickname: string;
   avatarUrl: string;
 }
+
+export interface FriendPublicProfilesList {
+  friendsProfiles: UserPublicProfile[];
+}

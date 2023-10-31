@@ -1,6 +1,12 @@
-import {UserPublicProfile} from '../../base_interfaces';
+import {FriendPublicProfilesList} from '../../base_interfaces';
 
 /****************GET****************/
 export const GetFriendProfilesEndPoint = '';
 
-export type GetFriendProfilesResponse = UserPublicProfile[];
+export interface GetFriendProfilesResponse extends FriendPublicProfilesList {
+  friendsProfiles: {
+    userId: number;
+    nickname: string;
+    avatarUrl: string;
+  }[];
+}

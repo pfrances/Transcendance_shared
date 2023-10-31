@@ -12,11 +12,11 @@ export * from './joinChat';
 export * from './leaveChat';
 export * from './updateChat';
 
-export const ChatEndPointBase = 'chats';
+export const ChatEndPointBase = 'chat';
 export const ChatEndPoints = {
   getAllMessages: `${ChatEndPointBase}/${ChatGetAllMessagesEndPoint}`,
   getChatInfo: `${ChatEndPointBase}/${GetChatInfoEndPoint}`,
-  createChatInfo: `${ChatEndPointBase}/${CreateChatEndPoint}`,
+  createChat: `${ChatEndPointBase}/${CreateChatEndPoint}`,
   joinChat: function (chatId: number) {
     `${ChatEndPointBase}/${JoinChatEndPoint(chatId)}`;
   },

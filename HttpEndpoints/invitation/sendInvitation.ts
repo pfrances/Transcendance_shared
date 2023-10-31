@@ -32,6 +32,6 @@ export interface SendInvitationReponse {
   receiverId: number;
   status: InvitationStatus;
   kind: InvitationKind;
-  targetChat?: ChatInfo;
+  targetChatId?: number;
   targetGameId?: number;
 }
