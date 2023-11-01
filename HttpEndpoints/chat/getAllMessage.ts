@@ -5,7 +5,7 @@ export const ChatGetAllMessagesEndPoint = 'allMessages';
 export const ChatGetAllMessagesQuery: Partial<query<number>> = {key: 'roomId'};
 
 export interface GetAllMessageResponse {
-  participant: {
+  participants: {
     userProfile: UserPublicProfile;
     role: Role;
     mutedUntil?: Date;
