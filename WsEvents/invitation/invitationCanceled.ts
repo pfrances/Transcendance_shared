@@ -1,8 +1,8 @@
 import {InvitationKind, InvitationStatus} from 'src/shared/HttpEndpoints/types';
 import {WsInvitation_FromServer} from '.';
 
-export namespace WsNewInvitation {
-  export const eventName: WsInvitation_FromServer.eventName = 'newInvitation';
+export namespace WsInvitationCanceled {
+  export const eventName: WsInvitation_FromServer.eventName = 'invitationCanceled';
 
   export interface eventMessageTemplate {
     invitationId: number;
