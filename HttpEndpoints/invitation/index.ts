@@ -1,16 +1,17 @@
-import {SendInvitationEndPoint} from './sendInvitation';
-import {UpdateInvitationEndPoint} from './updateInvitation';
-import {InvitationKind_Url, InvitationAction_Url} from '../../base_types';
+import {HttpSendInvitation} from './sendInvitation';
+import {HttpUpdateInvitation} from './updateInvitation';
 
-export * from './sendInvitation';
-export * from './updateInvitation';
+export {HttpSendInvitation, HttpUpdateInvitation};
 
-export const InvitationEndPointBase = 'invitation';
-export const InvitationEndPoints = {
-  send: function (kind: InvitationKind_Url) {
-    `${InvitationEndPointBase}${SendInvitationEndPoint(kind)}`;
-  },
-  update: function (kind: InvitationKind_Url, action: InvitationAction_Url, id: number) {
-    `${InvitationEndPointBase}${UpdateInvitationEndPoint(kind, action, id)}`;
-  },
-};
+export namespace HttpInvitation {
+  export import sendInvitation = HttpSendInvitation;
+  export import updateInvitation = HttpUpdateInvitation;
+
+  export const endPointBase = '/invitation';
+
+  export type reqTemplate = sendInvitation.reqTemplate | updateInvitation.reqTemplate;
+
+  export type resTemplate = sendInvitation.resTemplate | updateInvitation.resTemplate;
+}
+
+export const HttpInvitationEndPointBase = HttpInvitation.endPointBase;

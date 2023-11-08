@@ -1,21 +1,27 @@
-import {UserPublicProfile, query, Role} from '../../base_interfaces';
+import {HttpChatEndPointBase} from '.';
+import {HttpMethod} from '../enum';
+import {Role, UserPublicProfile} from '../interfaces';
 
-/****************GET****************/
-export const ChatGetAllMessagesEndPoint = 'allMessages';
-export const ChatGetAllMessagesQuery: Partial<query<number>> = {key: 'roomId'};
+export namespace HttpGetAllMessage {
+  export const method = HttpMethod.GET;
+  export const endPoint = '/allMessages/:chatId';
+  export const getEndPoint = (chatId: number) => `/allMessages/${chatId}`;
+  export const getEndPointFull = (chatId: number) =>
+    `${HttpChatEndPointBase}${getEndPoint(chatId)}`;
 
-export interface GetAllMessageResponse {
-  participants: {
-    userProfile: UserPublicProfile;
-    role: Role;
-    mutedUntil?: Date;
-    blockedUntil?: Date;
-    hasLeaved: boolean;
-  }[];
-  messages: {
-    userId: number;
-    messageId: number;
-    createdAt: Date;
-    messageContent: string;
-  }[];
+  export class resTemplate {
+    participants: {
+      userProfile: UserPublicProfile;
+      role: Role;
+      mutedUntil?: Date;
+      blockedUntil?: Date;
+      hasLeaved: boolean;
+    }[];
+    messages: {
+      userId: number;
+      messageId: number;
+      createdAt: Date;
+      messageContent: string;
+    }[];
+  }
 }

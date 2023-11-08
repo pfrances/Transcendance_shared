@@ -13,8 +13,8 @@ export namespace WsNewPlayerMove {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({userId, gameId, paddle_pos}: eventMessageTemplate) {
+      this.message = {userId, gameId, paddle_pos};
     }
   }
 }

@@ -12,8 +12,8 @@ export namespace WsChatLeave {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({userId, chatId}: eventMessageTemplate) {
+      this.message = {userId, chatId};
     }
   }
 }

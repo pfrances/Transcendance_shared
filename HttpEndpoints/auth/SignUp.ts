@@ -1,16 +1,22 @@
-import {UserPublicProfile} from '../../base_interfaces';
+import {UserPublicProfile} from '../interfaces';
+import {HttpAuthEndPointBase} from '.';
+import {HttpMethod} from '../enum';
 
-/****************POST****************/
-export const AuthSignUpEndPoint = 'signup';
-export interface AuthSignUpData {
-  nickname: string;
-  email: string;
-  password: string;
-  avatarUrl?: string;
-}
+export namespace HttpSignUp {
+  export const method = HttpMethod.POST;
+  export const endPoint = '/signup';
+  export const endPointFull = `${HttpAuthEndPointBase}${endPoint}`;
 
-export class AuthSignUpResponse implements UserPublicProfile {
-  userId: number;
-  nickname: string;
-  avatarUrl: string;
+  export class reqTemplate {
+    nickname: string;
+    email: string;
+    password: string;
+    avatarUrl?: string;
+  }
+
+  export class resTemplate implements UserPublicProfile {
+    userId: number;
+    nickname: string;
+    avatarUrl: string;
+  }
 }

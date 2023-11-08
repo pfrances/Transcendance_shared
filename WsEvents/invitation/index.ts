@@ -1,28 +1,30 @@
 import {WsEvents_FromServer} from '..';
-import {WsInvitationAccepted} from './invitationAccepted';
-import {WsInvitationCanceled} from './invitationCanceled';
-import {WsInvitationDeclined} from './invitationDeclined';
+import {WsInvitationUpdated} from './invitationUpdated';
+import {WsInvitationAccepted} from './invitationUpdated/invitationAccepted';
+import {WsInvitationCanceled} from './invitationUpdated/invitationCanceled';
+import {WsInvitationDeclined} from './invitationUpdated/invitationDeclined';
 import {WsNewInvitation} from './newInvitation';
 
-export {WsNewInvitation, WsInvitationAccepted, WsInvitationCanceled, WsInvitationDeclined};
+export {
+  WsNewInvitation,
+  WsInvitationUpdated,
+  WsInvitationAccepted,
+  WsInvitationCanceled,
+  WsInvitationDeclined,
+};
 
 export namespace WsInvitation_FromServer {
   export import NewInvitation = WsNewInvitation;
+  export import InvitationUpdated = WsInvitationUpdated;
   export import InvitationAccepted = WsInvitationAccepted;
   export import InvitationCanceled = WsInvitationCanceled;
   export import InvitationDeclined = WsInvitationDeclined;
 
-  export type eventName =
-    | 'newInvitation'
-    | 'invitationAccepted'
-    | 'invitationCanceled'
-    | 'invitationDeclined';
+  export type eventName = 'newInvitation' | InvitationUpdated.eventName;
 
   export type messageTemplate =
     | NewInvitation.eventMessageTemplate
-    | InvitationAccepted.eventMessageTemplate
-    | InvitationCanceled.eventMessageTemplate
-    | InvitationDeclined.eventMessageTemplate;
+    | InvitationUpdated.messageTemplate;
 
   export interface template extends WsEvents_FromServer.template {
     eventName: eventName;

@@ -1,10 +1,15 @@
-import {UserPublicProfile} from '../../base_interfaces';
+import {HttpUserEndPointBase} from '.';
+import {HttpMethod} from '../enum';
+import {UserPublicProfile} from '../interfaces';
 
-/****************GET****************/
-export const UserMeEndPoint = 'me';
+export namespace HttpGetMe {
+  export const method = HttpMethod.GET;
+  export const endPoint = '/me';
+  export const endPointFull = `${HttpUserEndPointBase}${endPoint}`;
 
-export class UserMeUserResponse implements UserPublicProfile {
-  userId: number;
-  nickname: string;
-  avatarUrl: string;
+  export class resTemplate implements UserPublicProfile {
+    userId: number;
+    nickname: string;
+    avatarUrl: string;
+  }
 }

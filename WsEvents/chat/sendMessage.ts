@@ -12,8 +12,8 @@ export namespace WsSendMessage {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({chatId, messageContent}: eventMessageTemplate) {
+      this.message = {chatId, messageContent};
     }
   }
 }

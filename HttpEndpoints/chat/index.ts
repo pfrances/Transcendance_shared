@@ -1,29 +1,42 @@
-import {CreateChatEndPoint} from './createChat';
-import {ChatGetAllMessagesEndPoint} from './getAllMessage';
-import {GetChatInfoEndPoint} from './getChatInfo';
-import {JoinChatEndPoint} from './joinChat';
-import {LeaveChatEndPoint} from './leaveChat';
-import {UpdateChatEndPoint} from './updateChat';
+import {HttpCreateChat} from './createChat';
+import {HttpGetAllMessage} from './getAllMessage';
+import {HttpGetChatInfo} from './getChatInfo';
+import {HttpJoinChat} from './joinChat';
+import {HttpLeaveChat} from './leaveChat';
+import {HttpUpdateChat} from './updateChat';
 
-export * from './getAllMessage';
-export * from './getChatInfo';
-export * from './createChat';
-export * from './joinChat';
-export * from './leaveChat';
-export * from './updateChat';
-
-export const ChatEndPointBase = 'chat';
-export const ChatEndPoints = {
-  getAllMessages: `${ChatEndPointBase}/${ChatGetAllMessagesEndPoint}`,
-  getChatInfo: `${ChatEndPointBase}/${GetChatInfoEndPoint}`,
-  createChat: `${ChatEndPointBase}/${CreateChatEndPoint}`,
-  joinChat: function (chatId: number) {
-    `${ChatEndPointBase}/${JoinChatEndPoint(chatId)}`;
-  },
-  leaveChat: function (chatId: number) {
-    `${ChatEndPointBase}/${LeaveChatEndPoint(chatId)}`;
-  },
-  updateChat: function (chatId: number) {
-    `${ChatEndPointBase}/${UpdateChatEndPoint(chatId)}`;
-  },
+export {
+  HttpCreateChat,
+  HttpGetAllMessage,
+  HttpGetChatInfo,
+  HttpJoinChat,
+  HttpLeaveChat,
+  HttpUpdateChat,
 };
+
+export namespace HttpChat {
+  export import create = HttpCreateChat;
+  export import getMessages = HttpGetAllMessage;
+  export import getInfo = HttpGetChatInfo;
+  export import join = HttpJoinChat;
+  export import leave = HttpLeaveChat;
+  export import update = HttpUpdateChat;
+
+  export const endPointBase = '/chat';
+
+  export type reqTemplate =
+    | create.reqTemplate
+    | join.reqTemplate
+    | leave.reqTemplate
+    | update.reqTemplate;
+
+  export type resTemplate =
+    | create.resTemplate
+    | getMessages.resTemplate
+    | getInfo.resTemplate
+    | join.resTemplate
+    | leave.resTemplate
+    | update.resTemplate;
+}
+
+export const HttpChatEndPointBase = HttpChat.endPointBase;

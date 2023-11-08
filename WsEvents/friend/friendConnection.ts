@@ -11,8 +11,8 @@ export namespace WsFriendConnection {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({friendId}: eventMessageTemplate) {
+      this.message = {friendId};
     }
   }
 }

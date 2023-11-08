@@ -1,37 +1,37 @@
-import {ChatInfo} from '../../base_interfaces';
-import {InvitationKind, InvitationKind_Url, InvitationStatus} from '../../base_types';
+import {HttpMethod} from '../enum';
+import {HttpInvitationEndPointBase} from '.';
+import {InvitationKind, InvitationKind_Url, InvitationStatus} from '../types';
 
-/****************POST****************/
-export const SendInvitationEndPoint_NEST = '/:kind/send';
-export const SendInvitationEndPoint = (kind: InvitationKind_Url) => {
-  `${kind}/send`;
-};
+export namespace HttpSendInvitation {
+  export const method = HttpMethod.POST;
+  export const endPoint = '/:kind/send/';
+  export const getEndPoint = (kind: InvitationKind_Url) => `/${kind}/send`;
+  export const getEndPointFull = (kind: InvitationKind_Url) =>
+    `${HttpInvitationEndPointBase}${getEndPoint(kind)}`;
 
-export interface SendFriendInvitationData {
-  targetUserId: number;
-}
+  export interface Friend_reqTemplate {
+    targetUserId: number;
+  }
 
-export interface SendChatInvitationData {
-  targetUserId: number;
-  targetChatId: number;
-}
+  export interface Chat_reqTemplate {
+    targetUserId: number;
+    targetChatId: number;
+  }
 
-export interface SendGameInvitationData {
-  targetUserId: number;
-  targetGameId: number;
-}
+  export interface Game_reqTemplate {
+    targetUserId: number;
+    targetGameId: number;
+  }
 
-export type SendInvitationData =
-  | SendFriendInvitationData
-  | SendChatInvitationData
-  | SendGameInvitationData;
+  export type reqTemplate = Friend_reqTemplate | Chat_reqTemplate | Game_reqTemplate;
 
-export interface SendInvitationReponse {
-  invitationId: number;
-  senderId: number;
-  receiverId: number;
-  status: InvitationStatus;
-  kind: InvitationKind;
-  targetChatId?: number;
-  targetGameId?: number;
+  export class resTemplate {
+    invitationId: number;
+    senderId: number;
+    receiverId: number;
+    status: InvitationStatus;
+    kind: InvitationKind;
+    targetChatId?: number;
+    targetGameId?: number;
+  }
 }

@@ -1,11 +1,17 @@
-import {UserEditEndPoint} from './edit';
-import {UserMeEndPoint} from './me';
+import {HttpGetMe} from './me';
+import {HttpEditMe} from './edit';
 
-export * from './edit';
-export * from './me';
+export {HttpGetMe, HttpEditMe};
 
-export const UserEndPointBase = 'user';
-export const UserEndPoints = {
-  edit: `${UserEndPointBase}/${UserEditEndPoint}`,
-  me: `${UserEndPointBase}/${UserMeEndPoint}`,
-};
+export namespace HttpUser {
+  export import getMe = HttpGetMe;
+  export import editMe = HttpEditMe;
+
+  export const endPointBase = '/user';
+
+  export type reqTemplate = editMe.reqTemplate;
+
+  export type resTemplate = getMe.resTemplate | editMe.resTemplate;
+}
+
+export const HttpUserEndPointBase = HttpUser.endPointBase;

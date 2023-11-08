@@ -1,23 +1,29 @@
-import {UserPublicProfile, ChatInfo, Role} from 'src/shared/base_interfaces';
+import {HttpChatEndPointBase} from '.';
+import {HttpMethod} from '../enum';
+import {ChatInfo, Role, UserPublicProfile} from '../interfaces';
 
-/****************POST****************/
-export const CreateChatEndPoint = 'create';
-export interface CreateChatData {
-  name: string;
-  chatAvatarUrl?: string;
-  password?: string;
-}
+export namespace HttpCreateChat {
+  export const method = HttpMethod.POST;
+  export const endPoint = '/create';
+  export const endPointFull = `${HttpChatEndPointBase}${endPoint}`;
 
-export interface CreateChatResponse extends ChatInfo {
-  chatId: number;
-  name: string;
-  chatAvatarUrl?: string;
-  hasPassword: boolean;
-  participants: {
-    userProfile: UserPublicProfile;
-    role: Role;
-    mutedUntil?: Date;
-    blockedUntil?: Date;
-    hasLeaved: boolean;
-  }[];
+  export class reqTemplate {
+    name: string;
+    chatAvatarUrl?: string;
+    password?: string;
+  }
+
+  export class resTemplate implements ChatInfo {
+    chatId: number;
+    name: string;
+    chatAvatarUrl?: string;
+    hasPassword: boolean;
+    participants: {
+      userProfile: UserPublicProfile;
+      role: Role;
+      mutedUntil?: Date;
+      blockedUntil?: Date;
+      hasLeaved: boolean;
+    }[];
+  }
 }

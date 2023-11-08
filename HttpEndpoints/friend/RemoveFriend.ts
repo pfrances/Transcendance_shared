@@ -1,16 +1,21 @@
-import {FriendPublicProfilesList} from '../../base_interfaces';
+import {HttpFriendEndPointBase} from '.';
+import {HttpMethod} from '../enum';
+import {FriendPublicProfilesList} from '../interfaces';
 
-/****************DELETE****************/
-export const RemoveFriendEndPoint = 'remove';
+export namespace HttpRemoveFriend {
+  export const method = HttpMethod.DELETE;
+  export const endPoint = '/remove';
+  export const endPointFull = `${HttpFriendEndPointBase}${endPoint}`;
 
-export interface RemoveFriendData {
-  friendId: number;
-}
+  export class reqTemplate {
+    friendId: number;
+  }
 
-export interface RemoveFriendResponse extends FriendPublicProfilesList {
-  friendsProfiles: {
-    userId: number;
-    nickname: string;
-    avatarUrl: string;
-  }[];
+  export class resTemplate implements FriendPublicProfilesList {
+    friendsProfiles: {
+      userId: number;
+      nickname: string;
+      avatarUrl: string;
+    }[];
+  }
 }

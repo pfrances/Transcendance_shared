@@ -1,19 +1,27 @@
+import {WsDefault} from './default';
 import {WsInvitation} from './invitation';
 import {WsFriend} from './friend';
 import {WsChat} from './chat';
 import {WsGame} from './game';
 
-export {WsInvitation, WsFriend, WsChat, WsGame};
+export {WsDefault, WsInvitation, WsFriend, WsChat, WsGame};
 
 export namespace WsEvents_FromServer {
+  export import Default = WsDefault;
   export import Invitation = WsInvitation.FromServer;
   export import Friend = WsFriend.FromServer;
   export import Chat = WsChat.FromServer;
   export import Game = WsGame.FromServer;
 
-  export type eventName = Invitation.eventName | Friend.eventName | Chat.eventName | Game.eventName;
+  export type eventName =
+    | Default.eventName
+    | Invitation.eventName
+    | Friend.eventName
+    | Chat.eventName
+    | Game.eventName;
 
   export type messageTemplate =
+    | Default.messageTemplate
     | Invitation.messageTemplate
     | Friend.messageTemplate
     | Chat.messageTemplate

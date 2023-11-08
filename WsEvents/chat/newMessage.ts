@@ -14,8 +14,8 @@ export namespace WsNewMessage {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({messageId, senderId, chatId, messageContent}: eventMessageTemplate) {
+      this.message = {messageId, senderId, chatId, messageContent};
     }
   }
 }

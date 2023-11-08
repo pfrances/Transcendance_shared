@@ -4,6 +4,7 @@ export namespace WsSendPlayerMove {
   export const eventName: WsGame_FromClient.eventName = 'sendPlayerMove';
 
   export interface eventMessageTemplate {
+    userId: number;
     gameId: number;
     paddle_pos: number;
   }
@@ -12,8 +13,8 @@ export namespace WsSendPlayerMove {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({userId, gameId, paddle_pos}: eventMessageTemplate) {
+      this.message = {userId, gameId, paddle_pos};
     }
   }
 }

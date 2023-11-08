@@ -1,29 +1,27 @@
-import {ChatInfo} from '../../base_interfaces/';
-import {
-  InvitationAction_Url,
-  InvitationKind,
-  InvitationKind_Url,
-  InvitationStatus,
-} from '../../base_types';
+import {HttpMethod} from '../enum';
+import {HttpInvitationEndPointBase} from '.';
+import {InvitationAction_Url, InvitationKind, InvitationKind_Url, InvitationStatus} from '../types';
 
-/****************POST****************/
-export const UpdateInvitationEndPoint_NEST = '/:kind/:action/:invitationId';
-export const UpdateInvitationEndPoint = (
-  kind: InvitationKind_Url,
-  action: InvitationAction_Url,
-  id: number,
-) => {
-  `${kind}/${action}/${id}`;
-};
+export namespace HttpUpdateInvitation {
+  export const method = HttpMethod.POST;
+  export const endPoint = '/:kind/:action/:invitationId';
+  export const getEndPoint = (kind: InvitationKind_Url, action: InvitationAction_Url, id: number) =>
+    `/${kind}/${action}/${id}`;
+  export const getEndPointFull = (
+    kind: InvitationKind_Url,
+    action: InvitationAction_Url,
+    id: number,
+  ) => `${HttpInvitationEndPointBase}${getEndPoint(kind, action, id)}`;
 
-export interface UpdateInvitationData {}
+  export interface reqTemplate {}
 
-export interface UpdateInvitationReponse {
-  invitationId: number;
-  senderId: number;
-  receiverId: number;
-  status: InvitationStatus;
-  kind: InvitationKind;
-  targetChatId?: number;
-  targetGameId?: number;
+  export class resTemplate {
+    invitationId: number;
+    senderId: number;
+    receiverId: number;
+    status: InvitationStatus;
+    kind: InvitationKind;
+    targetChatId?: number;
+    targetGameId?: number;
+  }
 }

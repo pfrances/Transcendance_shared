@@ -1,11 +1,17 @@
-import {GetFriendProfilesEndPoint} from './GetFriend';
-import {RemoveFriendEndPoint} from './RemoveFriend';
+import {HttpGetFriendsList} from './GetFriend';
+import {HttpRemoveFriend} from './RemoveFriend';
 
-export * from './GetFriend';
-export * from './RemoveFriend';
+export {HttpGetFriendsList, HttpRemoveFriend};
 
-export const FriendEndPointBase = 'friend';
-export const FriendEndPoints = {
-  getFriendProfiles: `${FriendEndPointBase}/${GetFriendProfilesEndPoint}`,
-  removeFriend: `${FriendEndPointBase}/${RemoveFriendEndPoint}`,
-};
+export namespace HttpFriend {
+  export import getFriendLists = HttpGetFriendsList;
+  export import removeFriend = HttpRemoveFriend;
+
+  export const endPointBase = '/friend';
+
+  export type reqTemplate = removeFriend.reqTemplate;
+
+  export type resTemplate = getFriendLists.resTemplate | removeFriend.resTemplate;
+}
+
+export const HttpFriendEndPointBase = HttpFriend.endPointBase;

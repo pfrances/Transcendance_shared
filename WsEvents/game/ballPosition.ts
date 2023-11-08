@@ -14,8 +14,8 @@ export namespace WsBallPosition {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({userId, gameId, ball_posX, ball_posY}: eventMessageTemplate) {
+      this.message = {userId, gameId, ball_posX, ball_posY};
     }
   }
 }

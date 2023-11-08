@@ -1,17 +1,17 @@
 import {InvitationKind, InvitationStatus} from 'src/shared/HttpEndpoints/types';
-import {WsInvitation_FromServer} from '.';
+import {WsInvitationUpdated} from '.';
 
-export namespace WsNewInvitation {
-  export const eventName: WsInvitation_FromServer.eventName = 'newInvitation';
+export namespace WsInvitationCanceled {
+  export const eventName: WsInvitationUpdated.eventName = 'invitationCanceled';
 
-  export interface eventMessageTemplate {
+  export class eventMessageTemplate {
     invitationId: number;
     senderId: number;
-    status: InvitationStatus;
+    status: InvitationStatus = 'CANCELED';
     kind: InvitationKind;
   }
 
-  export class Dto implements WsInvitation_FromServer.template {
+  export class Dto implements WsInvitationUpdated.template {
     public message: eventMessageTemplate;
     public eventName = eventName;
 

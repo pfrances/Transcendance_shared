@@ -12,8 +12,8 @@ export namespace WsGameLeave {
     public message: eventMessageTemplate;
     public eventName = eventName;
 
-    constructor(message: eventMessageTemplate) {
-      this.message = message;
+    constructor({userId, gameId}: eventMessageTemplate) {
+      this.message = {userId, gameId};
     }
   }
 }

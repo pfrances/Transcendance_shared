@@ -1,12 +1,17 @@
-import {FriendPublicProfilesList} from '../../base_interfaces';
+import {HttpFriendEndPointBase} from '.';
+import {HttpMethod} from '../enum';
+import {FriendPublicProfilesList} from '../interfaces';
 
-/****************GET****************/
-export const GetFriendProfilesEndPoint = '';
+export namespace HttpGetFriendsList {
+  export const method = HttpMethod.GET;
+  export const endPoint = '/';
+  export const endPointFull = `${HttpFriendEndPointBase}${endPoint}`;
 
-export interface GetFriendProfilesResponse extends FriendPublicProfilesList {
-  friendsProfiles: {
-    userId: number;
-    nickname: string;
-    avatarUrl: string;
-  }[];
+  export class resTemplate implements FriendPublicProfilesList {
+    friendsProfiles: {
+      userId: number;
+      nickname: string;
+      avatarUrl: string;
+    }[];
+  }
 }
