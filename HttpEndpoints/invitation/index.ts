@@ -1,3 +1,5 @@
+export const HttpInvitationEndPointBase = '/invitation';
+
 import {HttpSendInvitation} from './sendInvitation';
 import {HttpUpdateInvitation} from './updateInvitation';
 
@@ -7,11 +9,11 @@ export namespace HttpInvitation {
   export import sendInvitation = HttpSendInvitation;
   export import updateInvitation = HttpUpdateInvitation;
 
-  export const endPointBase = '/invitation';
+  export const endPointBase = HttpInvitationEndPointBase;
 
   export type reqTemplate = sendInvitation.reqTemplate | updateInvitation.reqTemplate;
 
   export type resTemplate = sendInvitation.resTemplate | updateInvitation.resTemplate;
-}
 
-export const HttpInvitationEndPointBase = HttpInvitation.endPointBase;
+  export type requestSender = sendInvitation.requestSender | updateInvitation.requestSender;
+}

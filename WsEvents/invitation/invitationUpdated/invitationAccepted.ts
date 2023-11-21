@@ -9,6 +9,12 @@ export namespace WsInvitationAccepted {
     public invitationId: number;
     public receiverId: number;
     public kind: InvitationKind;
+
+    constructor({invitationId, receiverId, kind}: eventMessageTemplate) {
+      this.invitationId = invitationId;
+      this.receiverId = receiverId;
+      this.kind = kind;
+    }
   }
 
   export class Dto implements WsInvitationUpdated.template {

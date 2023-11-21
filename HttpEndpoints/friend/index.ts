@@ -1,3 +1,5 @@
+export const HttpFriendEndPointBase = 'friend';
+
 import {HttpGetFriendsList} from './GetFriend';
 import {HttpRemoveFriend} from './RemoveFriend';
 
@@ -7,11 +9,11 @@ export namespace HttpFriend {
   export import getFriendLists = HttpGetFriendsList;
   export import removeFriend = HttpRemoveFriend;
 
-  export const endPointBase = '/friend';
+  export const endPointBase = HttpFriendEndPointBase;
 
-  export type reqTemplate = removeFriend.reqTemplate;
+  export type reqTemplate = getFriendLists.reqTemplate | removeFriend.reqTemplate;
 
   export type resTemplate = getFriendLists.resTemplate | removeFriend.resTemplate;
-}
 
-export const HttpFriendEndPointBase = HttpFriend.endPointBase;
+  export type requestSender = getFriendLists.requestSender | removeFriend.requestSender;
+}

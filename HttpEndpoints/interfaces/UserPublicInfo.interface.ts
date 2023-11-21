@@ -1,7 +1,7 @@
 export interface UserPublicProfile {
   userId: number;
   nickname: string;
-  avatarUrl: string;
+  avatarUrl: string | null;
 }
 
 export interface FriendPublicProfilesList {

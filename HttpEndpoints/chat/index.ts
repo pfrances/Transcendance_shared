@@ -1,3 +1,5 @@
+export const HttpChatEndPointBase = '/chat';
+
 import {HttpCreateChat} from './createChat';
 import {HttpGetAllMessage} from './getAllMessage';
 import {HttpGetChatInfo} from './getChatInfo';
@@ -22,10 +24,12 @@ export namespace HttpChat {
   export import leave = HttpLeaveChat;
   export import update = HttpUpdateChat;
 
-  export const endPointBase = '/chat';
+  export const endPointBase = HttpChatEndPointBase;
 
   export type reqTemplate =
     | create.reqTemplate
+    | getMessages.reqTemplate
+    | getInfo.reqTemplate
     | join.reqTemplate
     | leave.reqTemplate
     | update.reqTemplate;
@@ -37,6 +41,12 @@ export namespace HttpChat {
     | join.resTemplate
     | leave.resTemplate
     | update.resTemplate;
-}
 
-export const HttpChatEndPointBase = HttpChat.endPointBase;
+  export type requestSender =
+    | create.requestSender
+    | getMessages.requestSender
+    | getInfo.requestSender
+    | join.requestSender
+    | leave.requestSender
+    | update.requestSender;
+}

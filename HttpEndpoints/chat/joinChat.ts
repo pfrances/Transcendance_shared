@@ -1,6 +1,7 @@
 import {HttpChatEndPointBase} from '.';
 import {HttpMethod} from '../enum';
-import {ChatInfo, Role, UserPublicProfile} from '../interfaces';
+import {ChatInfo, ChatParticipant} from '../interfaces';
+import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpJoinChat {
   export const method = HttpMethod.POST;
@@ -11,19 +12,31 @@ export namespace HttpJoinChat {
 
   export class reqTemplate {
     password?: string;
+
+    constructor(password?: string) {
+      this.password = password;
+    }
   }
 
-  export class resTemplate implements ChatInfo {
+  export class resTemplate {
     chatId: number;
     name: string;
-    chatAvatarUrl: string;
+    chatAvatarUrl: string | null;
     hasPassword: boolean;
-    participants: {
-      userProfile: UserPublicProfile;
-      role: Role;
-      mutedUntil?: Date;
-      blockedUntil?: Date;
-      hasLeaved: boolean;
-    }[];
+    participants: ChatParticipant[];
+
+    constructor(chatInfo: ChatInfo) {
+      this.chatId = chatInfo.chatId;
+      this.name = chatInfo.name;
+      this.chatAvatarUrl = chatInfo.chatAvatarUrl;
+      this.hasPassword = chatInfo.hasPassword;
+      this.participants = chatInfo.participants;
+    }
+  }
+
+  export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
+    constructor(chatId: number, req: reqTemplate, authToken: string) {
+      super(getEndPointFull(chatId), method, req, resTemplate, authToken);
+    }
   }
 }

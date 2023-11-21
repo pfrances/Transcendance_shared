@@ -27,13 +27,13 @@ export namespace WsInvitationUpdated {
     Exclude<InvitationStatus, 'PENDING'>,
     new (message: messageTemplate) => template
   > = {
-    ACCEPTED: InvitationAccepted.Dto,
-    CANCELED: InvitationCanceled.Dto,
-    REFUSED: InvitationDeclined.Dto,
+    ACCEPTED: InvitationAccepted.Dto as new (message: messageTemplate) => template,
+    CANCELED: InvitationCanceled.Dto as new (message: messageTemplate) => template,
+    REFUSED: InvitationDeclined.Dto as new (message: messageTemplate) => template,
   };
 
   export const createInvitationUpdated = (message: messageTemplate): template => {
-    const StatusClass = statusClassMap[message.status];
+    const StatusClass = statusClassMap[message.status as Exclude<InvitationStatus, 'PENDING'>];
     if (StatusClass) {
       return new StatusClass(message);
     } else {

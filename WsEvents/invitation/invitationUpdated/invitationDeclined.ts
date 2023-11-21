@@ -9,6 +9,12 @@ export namespace WsInvitationDeclined {
     receiverId: number;
     status: InvitationStatus = 'REFUSED';
     kind: InvitationKind;
+
+    constructor({invitationId, receiverId, kind}: eventMessageTemplate) {
+      this.invitationId = invitationId;
+      this.receiverId = receiverId;
+      this.kind = kind;
+    }
   }
 
   export class Dto implements WsInvitationUpdated.template {

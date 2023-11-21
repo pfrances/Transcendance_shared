@@ -9,6 +9,12 @@ export namespace WsInvitationCanceled {
     senderId: number;
     status: InvitationStatus = 'CANCELED';
     kind: InvitationKind;
+
+    constructor({invitationId, senderId, kind}: eventMessageTemplate) {
+      this.invitationId = invitationId;
+      this.senderId = senderId;
+      this.kind = kind;
+    }
   }
 
   export class Dto implements WsInvitationUpdated.template {

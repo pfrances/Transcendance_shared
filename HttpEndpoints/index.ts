@@ -24,4 +24,11 @@ export namespace Http {
     | Chat.resTemplate
     | Friend.resTemplate
     | Invitation.resTemplate;
+
+  export type requestSender =
+    | Auth.requestSender
+    | User.requestSender
+    | Chat.requestSender
+    | Friend.requestSender
+    | Invitation.requestSender;
 }
