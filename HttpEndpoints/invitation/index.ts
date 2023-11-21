@@ -1,7 +1,7 @@
-export const HttpInvitationEndPointBase = '/invitation';
+import { HttpEndPointBase } from '../enum';
 
-import {HttpSendInvitation} from './sendInvitation';
 import {HttpUpdateInvitation} from './updateInvitation';
+import {HttpSendInvitation} from './sendInvitation';
 
 export {HttpSendInvitation, HttpUpdateInvitation};
 
@@ -9,7 +9,7 @@ export namespace HttpInvitation {
   export import sendInvitation = HttpSendInvitation;
   export import updateInvitation = HttpUpdateInvitation;
 
-  export const endPointBase = HttpInvitationEndPointBase;
+  export const endPointBase = HttpEndPointBase.INVITATION;
 
   export type reqTemplate = sendInvitation.reqTemplate | updateInvitation.reqTemplate;
 

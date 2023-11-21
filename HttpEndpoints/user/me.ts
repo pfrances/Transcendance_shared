@@ -1,12 +1,11 @@
-import {HttpUserEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {UserPublicProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetMe {
   export const method = HttpMethod.GET;
   export const endPoint = '/me';
-  export const endPointFull = `${HttpUserEndPointBase}${endPoint}`;
+  export const endPointFull = `${HttpEndPointBase.USER}${endPoint}`;
 
   export class reqTemplate {}
 

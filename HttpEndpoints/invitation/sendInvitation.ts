@@ -1,5 +1,4 @@
-import {HttpMethod} from '../enum';
-import {HttpInvitationEndPointBase} from '.';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {InvitationKind, InvitationKind_Url, InvitationStatus} from '../types';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
@@ -8,7 +7,7 @@ export namespace HttpSendInvitation {
   export const endPoint = '/:kind/send/';
   export const getEndPoint = (kind: InvitationKind_Url) => `/${kind}/send`;
   export const getEndPointFull = (kind: InvitationKind_Url) =>
-    `${HttpInvitationEndPointBase}${getEndPoint(kind)}`;
+    `${HttpEndPointBase.INVITATION}${getEndPoint(kind)}`;
 
   export interface Friend_reqTemplate {
     targetUserId: number;

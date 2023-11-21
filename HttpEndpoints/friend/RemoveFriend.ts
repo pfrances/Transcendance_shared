@@ -1,12 +1,11 @@
-import {HttpFriendEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {FriendPublicProfilesList} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpRemoveFriend {
   export const method = HttpMethod.DELETE;
   export const endPoint = '/remove';
-  export const endPointFull = `${HttpFriendEndPointBase}${endPoint}`;
+  export const endPointFull = `${HttpEndPointBase.FRIEND}${endPoint}`;
 
   export class reqTemplate {
     friendId: number;

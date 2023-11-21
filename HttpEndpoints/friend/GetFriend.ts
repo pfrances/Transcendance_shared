@@ -1,12 +1,11 @@
-import {HttpFriendEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {FriendPublicProfilesList} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetFriendsList {
   export const method = HttpMethod.GET;
   export const endPoint = '/';
-  export const endPointFull = `${HttpFriendEndPointBase}${endPoint}`;
+  export const endPointFull = `${HttpEndPointBase.FRIEND}${endPoint}`;
 
   export class reqTemplate {}
 

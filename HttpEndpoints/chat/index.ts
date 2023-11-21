@@ -1,5 +1,4 @@
-export const HttpChatEndPointBase = '/chat';
-
+import { HttpEndPointBase } from '../enum';
 import {HttpCreateChat} from './createChat';
 import {HttpGetAllMessage} from './getAllMessage';
 import {HttpGetChatInfo} from './getChatInfo';
@@ -24,7 +23,7 @@ export namespace HttpChat {
   export import leave = HttpLeaveChat;
   export import update = HttpUpdateChat;
 
-  export const endPointBase = HttpChatEndPointBase;
+  export const endPointBase = HttpEndPointBase.CHAT;
 
   export type reqTemplate =
     | create.reqTemplate

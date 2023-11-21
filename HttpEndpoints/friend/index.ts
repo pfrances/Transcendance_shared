@@ -1,7 +1,7 @@
-export const HttpFriendEndPointBase = 'friend';
+import { HttpEndPointBase } from '../enum';
 
-import {HttpGetFriendsList} from './GetFriend';
 import {HttpRemoveFriend} from './RemoveFriend';
+import {HttpGetFriendsList} from './GetFriend';
 
 export {HttpGetFriendsList, HttpRemoveFriend};
 
@@ -9,7 +9,7 @@ export namespace HttpFriend {
   export import getFriendLists = HttpGetFriendsList;
   export import removeFriend = HttpRemoveFriend;
 
-  export const endPointBase = HttpFriendEndPointBase;
+  export const endPointBase = HttpEndPointBase.FRIEND;
 
   export type reqTemplate = getFriendLists.reqTemplate | removeFriend.reqTemplate;
 

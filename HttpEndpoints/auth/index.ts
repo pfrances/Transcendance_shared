@@ -1,4 +1,4 @@
-export const HttpAuthEndPointBase = '/auth';
+import { HttpEndPointBase } from '../enum';
 
 import {HttpAuth42} from './42';
 import {HttpSignUp} from './SignUp';
@@ -10,7 +10,7 @@ export namespace HttpAuth {
   export import SignUp = HttpSignUp;
   export import SignIn = HttpSignIn;
 
-  export const endPointBase = HttpAuthEndPointBase;
+  export const endPointBase = HttpEndPointBase.AUTH;
 
   export type reqTemplate = Auth42.reqTemplate | SignUp.reqTemplate | SignIn.reqTemplate;
 

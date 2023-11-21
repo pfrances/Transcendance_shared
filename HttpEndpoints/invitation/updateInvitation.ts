@@ -1,5 +1,4 @@
-import {HttpMethod} from '../enum';
-import {HttpInvitationEndPointBase} from '.';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {InvitationAction_Url, InvitationKind, InvitationKind_Url, InvitationStatus} from '../types';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
@@ -12,7 +11,7 @@ export namespace HttpUpdateInvitation {
     kind: InvitationKind_Url,
     action: InvitationAction_Url,
     id: number,
-  ) => `${HttpInvitationEndPointBase}${getEndPoint(kind, action, id)}`;
+  ) => `${HttpEndPointBase.INVITATION}${getEndPoint(kind, action, id)}`;
 
   export interface reqTemplate {}
 

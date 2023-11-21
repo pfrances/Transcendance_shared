@@ -1,5 +1,4 @@
-import {HttpChatEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {ChatInfo, ChatParticipant, Role} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
@@ -8,7 +7,7 @@ export namespace HttpUpdateChat {
   export const endPoint = '/update/:chatId';
   export const getEndPoint = (chatId: number) => `/update/${chatId}`;
   export const getEndPointFull = (chatId: number) =>
-    `${HttpChatEndPointBase}${getEndPoint(chatId)}`;
+    `${HttpEndPointBase.CHAT}${getEndPoint(chatId)}`;
 
   export class reqTemplate {
     name?: string;
