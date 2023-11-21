@@ -1,12 +1,11 @@
-import {HttpChatEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {ChatInfo, Role, UserPublicProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpCreateChat {
   export const method = HttpMethod.POST;
   export const endPoint = '/create';
-  export const endPointFull = `${HttpChatEndPointBase}${endPoint}`;
+  export const endPointFull = `${HttpEndPointBase.CHAT}${endPoint}`;
 
   export class reqTemplate {
     name: string;

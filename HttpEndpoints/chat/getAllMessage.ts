@@ -1,5 +1,4 @@
-import {HttpChatEndPointBase} from '.';
-import {HttpMethod} from '../enum';
+import {HttpEndPointBase, HttpMethod} from '../enum';
 import {Role, UserPublicProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
@@ -8,7 +7,7 @@ export namespace HttpGetAllMessage {
   export const endPoint = '/allMessages/:chatId';
   export const getEndPoint = (chatId: number) => `/allMessages/${chatId}`;
   export const getEndPointFull = (chatId: number) =>
-    `${HttpChatEndPointBase}${getEndPoint(chatId)}`;
+    `${HttpEndPointBase.CHAT}${getEndPoint(chatId)}`;
 
   export class reqTemplate {}
 

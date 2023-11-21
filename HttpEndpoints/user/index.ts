@@ -1,4 +1,4 @@
-export const HttpUserEndPointBase = '/user';
+import { HttpEndPointBase } from '../enum';
 
 import {HttpGetMe} from './me';
 import {HttpEditMe} from './edit';
@@ -11,7 +11,7 @@ export namespace HttpUser {
   export import editMe = HttpEditMe;
   export import allUsers = HttpAllUsers;
 
-  export const endPointBase = HttpUserEndPointBase;
+  export const endPointBase = HttpEndPointBase.USER;
 
   export type reqTemplate = getMe.reqTemplate | editMe.reqTemplate | allUsers.reqTemplate;
 

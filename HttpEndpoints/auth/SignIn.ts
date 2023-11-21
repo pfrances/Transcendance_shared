@@ -1,11 +1,10 @@
-import {HttpAuthEndPointBase} from '.';
-import {HttpMethod} from '../enum';
 import {ARequestSender} from '../interfaces/ARequestSender';
+import {HttpMethod, HttpEndPointBase} from '../enum';
 
 export namespace HttpSignIn {
   export const method = HttpMethod.POST;
   export const endPoint = '/signin';
-  export const endPointFull = `${HttpAuthEndPointBase}${endPoint}`;
+  export const endPointFull = `${HttpEndPointBase.AUTH}${endPoint}`;
 
   export class reqTemplate {
     nickname: string;
