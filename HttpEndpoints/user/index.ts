@@ -1,4 +1,4 @@
-import { HttpEndPointBase } from '../enum';
+import {HttpEndPointBase} from '../enum';
 
 import {HttpGetMe} from './me';
 import {HttpEditMe} from './edit';

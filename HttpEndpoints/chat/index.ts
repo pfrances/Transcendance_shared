@@ -1,4 +1,4 @@
-import { HttpEndPointBase } from '../enum';
+import {HttpEndPointBase} from '../enum';
 import {HttpCreateChat} from './createChat';
 import {HttpGetAllMessage} from './getAllMessage';
 import {HttpGetChatInfo} from './getChatInfo';

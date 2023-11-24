@@ -1,4 +1,4 @@
-import { HttpEndPointBase } from '../enum';
+import {HttpEndPointBase} from '../enum';
 
 import {HttpAuth42} from './42';
 import {HttpSignUp} from './SignUp';

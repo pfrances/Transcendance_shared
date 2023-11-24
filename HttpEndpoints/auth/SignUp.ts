@@ -25,11 +25,13 @@ export namespace HttpSignUp {
     public userId: number;
     public nickname: string;
     public avatarUrl: string | null;
+    public authToken: string;
 
-    constructor(dto: UserPublicProfile) {
+    constructor(dto: UserPublicProfile & {authToken: string}) {
       this.userId = dto.userId;
       this.nickname = dto.nickname;
       this.avatarUrl = dto.avatarUrl;
+      this.authToken = dto.authToken;
     }
   }
 
