@@ -21,9 +21,13 @@ export abstract class ARequestSender<
       data: this.req,
     };
     if (this.authToken) options.headers = {Authorization: `Bearer ${this.authToken}`};
-    const res = await axios(options);
-    if (res.data.error) throw new Error(res.data.error);
-    return new this.resCtr(res.data);
+    try {
+      const res = await axios(options);
+      return new this.resCtr(res.data);
+    } catch (err) {
+      if (axios.isAxiosError(err)) throw new Error(err?.response?.data ?? err);
+      throw err;
+    }
   }
 
   constructor(
