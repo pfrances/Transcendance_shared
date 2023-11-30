@@ -8,10 +8,10 @@ export namespace HttpEditMe {
   export const endPointFull = `${HttpEndPointBase.USER}${endPoint}`;
 
   export class reqTemplate {
-    public email?: string;
-    public nickname?: string;
-    public avatarUrl?: string;
-    public password?: string;
+    public readonly email?: string;
+    public readonly nickname?: string;
+    public readonly avatarUrl?: string;
+    public readonly password?: string;
     constructor({email, nickname, avatarUrl, password}: reqTemplate) {
       if (!email && !nickname && !avatarUrl && !password) throw new Error('empty body not allowed');
       this.email = email;
@@ -22,9 +22,9 @@ export namespace HttpEditMe {
   }
 
   export class resTemplate {
-    public userId: number;
-    public nickname: string;
-    public avatarUrl: string | null;
+    public readonly userId: number;
+    public readonly nickname: string;
+    public readonly avatarUrl: string | null;
 
     constructor({userId, nickname, avatarUrl}: UserPublicProfile) {
       this.userId = userId;

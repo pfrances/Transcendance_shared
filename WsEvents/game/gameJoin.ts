@@ -9,8 +9,8 @@ export namespace WsGameJoin {
   }
 
   export class Dto implements WsGame_FromServer.Template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({userId, gameId}: eventMessageTemplate) {
       this.message = {userId, gameId};

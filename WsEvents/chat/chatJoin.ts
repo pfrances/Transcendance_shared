@@ -9,8 +9,8 @@ export namespace WsChatJoin {
   }
 
   export class Dto implements WsChat_FromServer.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({userId, chatId}: eventMessageTemplate) {
       this.message = {userId, chatId};

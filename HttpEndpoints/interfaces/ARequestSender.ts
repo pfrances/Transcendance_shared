@@ -3,15 +3,15 @@ import {HttpMethod} from '../enum';
 import {Http} from '..';
 
 export abstract class ARequestSender<
-  reqTemplate = Http.reqTemplate,
-  resTemplate = Http.resTemplate,
+  reqTemplate extends Http.reqTemplate,
+  resTemplate extends Http.resTemplate,
 > {
-  private baseUrl = 'http://localhost:3333';
-  private endpoint: string;
-  private method: HttpMethod;
-  private req: reqTemplate;
-  private authToken?: string;
-  private resCtr: new (resBody: resTemplate) => resTemplate;
+  public readonly baseUrl = 'http://localhost:3333';
+  public readonly endpoint: string;
+  public readonly method: HttpMethod;
+  public readonly req: reqTemplate;
+  public readonly authToken?: string;
+  public readonly resCtr: new (resBody: resTemplate) => resTemplate;
 
   public async sendRequest(): Promise<resTemplate> | never {
     const options: AxiosRequestConfig = {

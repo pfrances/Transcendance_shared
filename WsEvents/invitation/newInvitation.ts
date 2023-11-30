@@ -1,4 +1,4 @@
-import {InvitationKind, InvitationStatus} from 'src/shared/HttpEndpoints/types';
+import {InvitationKind, InvitationStatus} from '../../HttpEndpoints/types';
 import {WsInvitation_FromServer} from '.';
 
 export namespace WsNewInvitation {
@@ -12,8 +12,8 @@ export namespace WsNewInvitation {
   }
 
   export class Dto implements WsInvitation_FromServer.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({status, invitationId, senderId, kind}: eventMessageTemplate) {
       this.message = {status, invitationId, senderId, kind};

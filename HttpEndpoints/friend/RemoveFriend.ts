@@ -8,7 +8,7 @@ export namespace HttpRemoveFriend {
   export const endPointFull = `${HttpEndPointBase.FRIEND}${endPoint}`;
 
   export class reqTemplate {
-    friendId: number;
+    public readonly friendId: number;
 
     constructor(friendId: number) {
       this.friendId = friendId;
@@ -16,7 +16,7 @@ export namespace HttpRemoveFriend {
   }
 
   export class resTemplate {
-    friendsProfiles: {
+    public readonly friendsProfiles: {
       userId: number;
       nickname: string;
       avatarUrl: string | null;

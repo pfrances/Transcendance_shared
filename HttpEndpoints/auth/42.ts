@@ -11,7 +11,7 @@ export namespace HttpAuth42 {
 
   /* /auth/42 -(redirect)-> API42 -(redirect)-> /auth/42/cb ⇩ response */
   export class resTemplate {
-    authToken: string;
+    public readonly authToken: string;
     constructor(authToken: string) {
       this.authToken = authToken;
     }

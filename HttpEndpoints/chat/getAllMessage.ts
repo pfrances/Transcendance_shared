@@ -12,14 +12,14 @@ export namespace HttpGetAllMessage {
   export class reqTemplate {}
 
   export class resTemplate {
-    participants: {
+    public readonly participants: {
       userProfile: UserPublicProfile;
       role: Role;
       mutedUntil: Date | null;
       blockedUntil: Date | null;
       hasLeaved: boolean;
     }[];
-    messages: {
+    public readonly messages: {
       userId: number;
       messageId: number;
       createdAt: Date;

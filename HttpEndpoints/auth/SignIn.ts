@@ -7,8 +7,8 @@ export namespace HttpSignIn {
   export const endPointFull = `${HttpEndPointBase.AUTH}${endPoint}`;
 
   export class reqTemplate {
-    nickname: string;
-    password: string;
+    public readonly nickname: string;
+    public readonly password: string;
 
     constructor({nickname, password}: reqTemplate) {
       this.nickname = nickname;
@@ -17,7 +17,7 @@ export namespace HttpSignIn {
   }
 
   export class resTemplate {
-    public authToken: string;
+    public readonly authToken: string;
 
     constructor({authToken}: resTemplate) {
       this.authToken = authToken;

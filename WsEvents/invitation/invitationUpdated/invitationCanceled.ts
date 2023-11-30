@@ -1,14 +1,14 @@
-import {InvitationKind, InvitationStatus} from 'src/shared/HttpEndpoints/types';
+import {InvitationKind, InvitationStatus} from '../../../HttpEndpoints/types';
 import {WsInvitationUpdated} from '.';
 
 export namespace WsInvitationCanceled {
   export const eventName: WsInvitationUpdated.eventName = 'invitationCanceled';
 
   export class eventMessageTemplate {
-    invitationId: number;
-    senderId: number;
-    status: InvitationStatus = 'CANCELED';
-    kind: InvitationKind;
+    public readonly invitationId: number;
+    public readonly senderId: number;
+    public readonly status: InvitationStatus = 'CANCELED';
+    public readonly kind: InvitationKind;
 
     constructor({invitationId, senderId, kind}: eventMessageTemplate) {
       this.invitationId = invitationId;
@@ -18,11 +18,11 @@ export namespace WsInvitationCanceled {
   }
 
   export class Dto implements WsInvitationUpdated.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({status, invitationId, senderId, kind}: eventMessageTemplate) {
-      this.message = {status, invitationId, senderId, kind};
+      this.message = new eventMessageTemplate({status, invitationId, senderId, kind});
     }
   }
 }

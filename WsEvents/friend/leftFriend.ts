@@ -8,8 +8,8 @@ export namespace WsLeftFriend {
   }
 
   export class Dto implements WsFriend_FromServer.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({friendId}: eventMessageTemplate) {
       this.message = {friendId};

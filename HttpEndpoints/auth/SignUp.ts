@@ -8,10 +8,10 @@ export namespace HttpSignUp {
   export const endPointFull = `${HttpEndPointBase.AUTH}${endPoint}`;
 
   export class reqTemplate {
-    public nickname: string;
-    public email: string;
-    public password: string;
-    public avatarUrl?: string;
+    public readonly nickname: string;
+    public readonly email: string;
+    public readonly password: string;
+    public readonly avatarUrl?: string;
 
     constructor(dto: reqTemplate) {
       this.nickname = dto.nickname;
@@ -22,10 +22,10 @@ export namespace HttpSignUp {
   }
 
   export class resTemplate {
-    public userId: number;
-    public nickname: string;
-    public avatarUrl: string | null;
-    public authToken: string;
+    public readonly userId: number;
+    public readonly nickname: string;
+    public readonly avatarUrl: string | null;
+    public readonly authToken: string;
 
     constructor(dto: UserPublicProfile & {authToken: string}) {
       this.userId = dto.userId;

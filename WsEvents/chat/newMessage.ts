@@ -11,8 +11,8 @@ export namespace WsNewMessage {
   }
 
   export class Dto implements WsChat_FromServer.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({messageId, senderId, chatId, messageContent}: eventMessageTemplate) {
       this.message = {messageId, senderId, chatId, messageContent};

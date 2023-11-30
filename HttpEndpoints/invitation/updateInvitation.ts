@@ -16,13 +16,13 @@ export namespace HttpUpdateInvitation {
   export interface reqTemplate {}
 
   export class resTemplate {
-    invitationId: number;
-    senderId: number;
-    receiverId: number;
-    status: InvitationStatus;
-    kind: InvitationKind;
-    targetChatId?: number;
-    targetGameId?: number;
+    public readonly invitationId: number;
+    public readonly senderId: number;
+    public readonly receiverId: number;
+    public readonly status: InvitationStatus;
+    public readonly kind: InvitationKind;
+    public readonly targetChatId?: number;
+    public readonly targetGameId?: number;
 
     constructor({
       invitationId,

@@ -12,11 +12,11 @@ export namespace HttpGetChatInfo {
   export class reqTemplate {}
 
   export class resTemplate {
-    chatId: number;
-    name: string;
-    chatAvatarUrl: string | null;
-    hasPassword: boolean;
-    participants: ChatParticipant[];
+    public readonly chatId: number;
+    public readonly name: string;
+    public readonly chatAvatarUrl: string | null;
+    public readonly hasPassword: boolean;
+    public readonly participants: ChatParticipant[];
 
     constructor(chatInfo: ChatInfo) {
       this.chatId = chatInfo.chatId;

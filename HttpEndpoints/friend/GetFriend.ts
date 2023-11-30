@@ -10,7 +10,7 @@ export namespace HttpGetFriendsList {
   export class reqTemplate {}
 
   export class resTemplate {
-    friendsProfiles: {
+    public readonly friendsProfiles: {
       userId: number;
       nickname: string;
       avatarUrl: string | null;

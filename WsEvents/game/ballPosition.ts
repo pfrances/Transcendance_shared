@@ -11,8 +11,8 @@ export namespace WsBallPosition {
   }
 
   export class Dto implements WsGame_FromServer.Template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({userId, gameId, ball_posX, ball_posY}: eventMessageTemplate) {
       this.message = {userId, gameId, ball_posX, ball_posY};

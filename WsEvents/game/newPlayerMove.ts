@@ -10,8 +10,8 @@ export namespace WsNewPlayerMove {
   }
 
   export class Dto implements WsGame_FromServer.Template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor({userId, gameId, paddle_pos}: eventMessageTemplate) {
       this.message = {userId, gameId, paddle_pos};

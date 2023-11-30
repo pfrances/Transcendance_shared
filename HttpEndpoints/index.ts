@@ -4,6 +4,8 @@ import {HttpChat} from './chat';
 import {HttpFriend} from './friend';
 import {HttpInvitation} from './invitation';
 
+export {HttpAuth, HttpUser, HttpChat, HttpFriend, HttpInvitation};
+
 export namespace Http {
   export import Auth = HttpAuth;
   export import User = HttpUser;

@@ -10,9 +10,9 @@ export namespace HttpGetMe {
   export class reqTemplate {}
 
   export class resTemplate {
-    public userId: number;
-    public nickname: string;
-    public avatarUrl: string | null;
+    public readonly userId: number;
+    public readonly nickname: string;
+    public readonly avatarUrl: string | null;
 
     constructor({userId, nickname, avatarUrl}: UserPublicProfile) {
       this.userId = userId;

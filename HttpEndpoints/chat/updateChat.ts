@@ -10,10 +10,10 @@ export namespace HttpUpdateChat {
     `${HttpEndPointBase.CHAT}${getEndPoint(chatId)}`;
 
   export class reqTemplate {
-    name?: string;
-    password?: string;
-    chatAvatarUrl?: string;
-    participants?: {
+    public readonly name?: string;
+    public readonly password?: string;
+    public readonly chatAvatarUrl?: string;
+    public readonly participants?: {
       userId: number;
       targetRole?: Role;
       muteUntil?: Date;

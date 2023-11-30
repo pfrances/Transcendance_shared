@@ -6,8 +6,8 @@ export namespace WsDisconnection {
   export type eventMessageTemplate = string;
 
   export class Dto implements WsDefault_FromServer.template {
-    public message: eventMessageTemplate;
-    public eventName = eventName;
+    public readonly message: eventMessageTemplate;
+    public readonly eventName = eventName;
 
     constructor(message: eventMessageTemplate) {
       this.message = message;

@@ -10,7 +10,7 @@ export namespace HttpAllUsers {
   export class reqTemplate {}
 
   export class resTemplate {
-    public users: UserPublicProfile[];
+    public readonly users: UserPublicProfile[];
 
     constructor(users: UserPublicProfile[]) {
       this.users = users;

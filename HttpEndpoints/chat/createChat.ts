@@ -8,9 +8,9 @@ export namespace HttpCreateChat {
   export const endPointFull = `${HttpEndPointBase.CHAT}${endPoint}`;
 
   export class reqTemplate {
-    name: string;
-    chatAvatarUrl?: string;
-    password?: string;
+    public readonly name: string;
+    public readonly chatAvatarUrl?: string;
+    public readonly password?: string;
 
     constructor(dto: reqTemplate) {
       this.name = dto.name;
@@ -20,11 +20,11 @@ export namespace HttpCreateChat {
   }
 
   export class resTemplate {
-    chatId: number;
-    name: string;
-    chatAvatarUrl: string | null;
-    hasPassword: boolean;
-    participants: {
+    public readonly chatId: number;
+    public readonly name: string;
+    public readonly chatAvatarUrl: string | null;
+    public readonly hasPassword: boolean;
+    public readonly participants: {
       userProfile: UserPublicProfile;
       role: Role;
       mutedUntil: Date | null;
