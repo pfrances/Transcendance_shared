@@ -33,8 +33,8 @@ export namespace HttpGetAllMessage {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(chatId: number, authToken: string) {
-      super(getEndPointFull(chatId), method, reqTemplate, resTemplate, authToken);
+    constructor(chatId: number) {
+      super(getEndPointFull(chatId), method, reqTemplate, resTemplate);
     }
   }
 }

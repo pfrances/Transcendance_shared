@@ -49,9 +49,8 @@ export namespace HttpUpdateInvitation {
       action: InvitationAction_Url,
       id: number,
       req: reqTemplate,
-      authToken: string,
     ) {
-      super(getEndPointFull(kind, action, id), method, req, resTemplate, authToken);
+      super(getEndPointFull(kind, action, id), method, req, resTemplate);
     }
   }
 }

@@ -54,8 +54,8 @@ export namespace HttpSendInvitation {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(kind: InvitationKind_Url, req: reqTemplate, authToken: string) {
-      super(getEndPointFull(kind), method, req, resTemplate, authToken);
+    constructor(kind: InvitationKind_Url, req: reqTemplate) {
+      super(getEndPointFull(kind), method, req, resTemplate);
     }
   }
 }

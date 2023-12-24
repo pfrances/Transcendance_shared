@@ -34,8 +34,8 @@ export namespace HttpEditMe {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(req: reqTemplate, authToken: string) {
-      super(endPointFull, method, req, resTemplate, authToken);
+    constructor(req: reqTemplate) {
+      super(endPointFull, method, req, resTemplate);
     }
   }
 }

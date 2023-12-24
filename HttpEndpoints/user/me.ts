@@ -22,8 +22,8 @@ export namespace HttpGetMe {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(authToken: string) {
-      super(endPointFull, method, reqTemplate, resTemplate, authToken);
+    constructor() {
+      super(endPointFull, method, reqTemplate, resTemplate);
     }
   }
 }

@@ -34,8 +34,8 @@ export namespace HttpJoinChat {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(chatId: number, req: reqTemplate, authToken: string) {
-      super(getEndPointFull(chatId), method, req, resTemplate, authToken);
+    constructor(chatId: number, req: reqTemplate) {
+      super(getEndPointFull(chatId), method, req, resTemplate);
     }
   }
 }
