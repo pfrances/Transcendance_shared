@@ -17,10 +17,12 @@ export namespace HttpSignIn {
   }
 
   export class resTemplate {
-    public readonly authToken: string;
+    public readonly userId: number;
+    public readonly auth2FACode: string;
 
-    constructor({authToken}: resTemplate) {
-      this.authToken = authToken;
+    constructor(dto: resTemplate) {
+      this.userId = dto.userId;
+      this.auth2FACode = dto.auth2FACode;
     }
   }
 

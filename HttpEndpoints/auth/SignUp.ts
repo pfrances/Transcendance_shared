@@ -1,4 +1,3 @@
-import {UserPublicProfile} from '../interfaces';
 import {HttpEndPointBase, HttpMethod} from '../enum';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
@@ -23,15 +22,11 @@ export namespace HttpSignUp {
 
   export class resTemplate {
     public readonly userId: number;
-    public readonly nickname: string;
-    public readonly avatarUrl: string | null;
-    public readonly authToken: string;
+    public readonly auth2FACode: string;
 
-    constructor(dto: UserPublicProfile & {authToken: string}) {
+    constructor(dto: resTemplate) {
       this.userId = dto.userId;
-      this.nickname = dto.nickname;
-      this.avatarUrl = dto.avatarUrl;
-      this.authToken = dto.authToken;
+      this.auth2FACode = dto.auth2FACode;
     }
   }
 
