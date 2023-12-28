@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {UserPublicProfile} from '../interfaces';
+import {UserPrivateProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpEditMe {
@@ -24,11 +24,13 @@ export namespace HttpEditMe {
   export class resTemplate {
     public readonly userId: number;
     public readonly nickname: string;
+    public readonly email: string;
     public readonly avatarUrl: string | null;
 
-    constructor({userId, nickname, avatarUrl}: UserPublicProfile) {
+    constructor({userId, nickname, email, avatarUrl}: UserPrivateProfile) {
       this.userId = userId;
       this.nickname = nickname;
+      this.email = email;
       this.avatarUrl = avatarUrl;
     }
   }

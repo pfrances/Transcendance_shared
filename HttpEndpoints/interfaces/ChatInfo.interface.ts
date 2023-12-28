@@ -1,4 +1,4 @@
-import {UserPublicProfile} from './UserPublicInfo.interface';
+import {UserPublicProfile} from './UserProfileInfo.interface';
 
 export type Role = 'ADMIN' | 'MEMBER';
 

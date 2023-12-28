@@ -7,3 +7,10 @@ export interface UserPublicProfile {
 export interface FriendPublicProfilesList {
   friendsProfiles: UserPublicProfile[];
 }
+
+export interface UserPrivateProfile {
+  userId: number;
+  nickname: string;
+  email: string;
+  avatarUrl: string | null;
+}

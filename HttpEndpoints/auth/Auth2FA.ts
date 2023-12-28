@@ -1,6 +1,6 @@
 import {ARequestSender} from '../interfaces/ARequestSender';
 import {HttpMethod, HttpEndPointBase} from '../enum';
-import {UserPublicProfile} from '../interfaces';
+import {UserPrivateProfile} from '../interfaces';
 
 export namespace Http2FA {
   export const method = HttpMethod.POST;
@@ -21,7 +21,7 @@ export namespace Http2FA {
 
   export class resTemplate {
     public readonly authToken: string;
-    public readonly userInfo: UserPublicProfile;
+    public readonly userInfo: UserPrivateProfile;
 
     constructor(dto: resTemplate) {
       this.authToken = dto.authToken;

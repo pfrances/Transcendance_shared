@@ -1,2 +1,2 @@
-export * from './UserPublicInfo.interface';
+export * from './UserProfileInfo.interface';
 export * from './ChatInfo.interface';
