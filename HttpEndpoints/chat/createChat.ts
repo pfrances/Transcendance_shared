@@ -9,12 +9,12 @@ export namespace HttpCreateChat {
 
   export class reqTemplate {
     public readonly name: string;
-    public readonly chatAvatarUrl?: string;
+    public readonly chatAvatar?: File;
     public readonly password?: string;
 
     constructor(dto: reqTemplate) {
       this.name = dto.name;
-      this.chatAvatarUrl = dto.chatAvatarUrl;
+      this.chatAvatar = dto.chatAvatar;
       this.password = dto.password;
     }
   }

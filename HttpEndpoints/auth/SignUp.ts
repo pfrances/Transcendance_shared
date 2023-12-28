@@ -10,13 +10,13 @@ export namespace HttpSignUp {
     public readonly nickname: string;
     public readonly email: string;
     public readonly password: string;
-    public readonly avatarUrl?: string;
+    public readonly avatar?: File;
 
     constructor(dto: reqTemplate) {
       this.nickname = dto.nickname;
       this.email = dto.email;
       this.password = dto.password;
-      this.avatarUrl = dto.avatarUrl;
+      this.avatar = dto.avatar;
     }
   }
 

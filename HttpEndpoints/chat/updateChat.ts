@@ -12,7 +12,7 @@ export namespace HttpUpdateChat {
   export class reqTemplate {
     public readonly name?: string;
     public readonly password?: string;
-    public readonly chatAvatarUrl?: string;
+    public readonly chatAvatar?: File;
     public readonly participants?: {
       userId: number;
       targetRole?: Role;
@@ -24,7 +24,7 @@ export namespace HttpUpdateChat {
     constructor(data: HttpUpdateChat.reqTemplate) {
       this.name = data.name;
       this.password = data.password;
-      this.chatAvatarUrl = data.chatAvatarUrl;
+      this.chatAvatar = data.chatAvatar;
       this.participants = data.participants;
     }
   }
