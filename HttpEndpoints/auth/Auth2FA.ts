@@ -21,10 +21,12 @@ export namespace Http2FA {
 
   export class resTemplate {
     public readonly authToken: string;
+    public readonly refreshToken: string;
     public readonly userInfo: UserPrivateProfile;
 
     constructor(dto: resTemplate) {
       this.authToken = dto.authToken;
+      this.refreshToken = dto.refreshToken;
       this.userInfo = dto.userInfo;
     }
   }
