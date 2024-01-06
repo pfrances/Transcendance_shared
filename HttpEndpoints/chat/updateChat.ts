@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {ChatInfo, ChatParticipant, Role} from '../interfaces';
+import {ChatOverview, ChatParticipation, Role} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpUpdateChat {
@@ -30,18 +30,18 @@ export namespace HttpUpdateChat {
   }
 
   export class resTemplate {
-    chatId: number;
-    name: string;
-    chatAvatarUrl: string | null;
-    hasPassword: boolean;
-    participants: ChatParticipant[];
+    public readonly chatId: number;
+    public readonly name: string;
+    public readonly chatAvatarUrl: string | null;
+    public readonly hasPassword: boolean;
+    public readonly participation: ChatParticipation | null;
 
-    constructor(chatInfo: ChatInfo) {
-      this.chatId = chatInfo.chatId;
-      this.name = chatInfo.name;
-      this.chatAvatarUrl = chatInfo.chatAvatarUrl;
-      this.hasPassword = chatInfo.hasPassword;
-      this.participants = chatInfo.participants;
+    constructor(chatOverview: ChatOverview) {
+      this.chatId = chatOverview.chatId;
+      this.name = chatOverview.name;
+      this.chatAvatarUrl = chatOverview.chatAvatarUrl;
+      this.hasPassword = chatOverview.hasPassword;
+      this.participation = chatOverview.participation;
     }
   }
 

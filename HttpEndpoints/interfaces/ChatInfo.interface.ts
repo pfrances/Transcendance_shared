@@ -1,19 +1,30 @@
-import {UserPublicProfile} from './UserProfileInfo.interface';
-
 export type Role = 'ADMIN' | 'MEMBER';
 
-export interface ChatParticipant {
-  userProfile: UserPublicProfile;
+export interface ChatParticipation {
   role: Role;
   mutedUntil: Date | null;
   blockedUntil: Date | null;
   hasLeaved: boolean;
 }
 
-export interface ChatInfo {
+export interface ChatOverview {
   chatId: number;
   name: string;
   chatAvatarUrl: string | null;
   hasPassword: boolean;
-  participants: ChatParticipant[];
+  participation: ChatParticipation | null;
+}
+
+export interface ChatMessage {
+  senderId: number;
+  nickname: string;
+  avatarUrl: string | null;
+  messageId: number;
+  createdAt: Date;
+  messageContent: string;
+}
+
+export interface ChatInfo {
+  chatOverview: ChatOverview;
+  chatMessages: ChatMessage[];
 }

@@ -1,5 +1,4 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {ChatInfo, Role, UserPublicProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpCreateChat {
@@ -19,27 +18,7 @@ export namespace HttpCreateChat {
     }
   }
 
-  export class resTemplate {
-    public readonly chatId: number;
-    public readonly name: string;
-    public readonly chatAvatarUrl: string | null;
-    public readonly hasPassword: boolean;
-    public readonly participants: {
-      userProfile: UserPublicProfile;
-      role: Role;
-      mutedUntil: Date | null;
-      blockedUntil: Date | null;
-      hasLeaved: boolean;
-    }[];
-
-    constructor(chatInfo: ChatInfo) {
-      this.chatId = chatInfo.chatId;
-      this.name = chatInfo.name;
-      this.chatAvatarUrl = chatInfo.chatAvatarUrl;
-      this.hasPassword = chatInfo.hasPassword;
-      this.participants = chatInfo.participants;
-    }
-  }
+  export class resTemplate {}
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
     constructor(req: reqTemplate) {

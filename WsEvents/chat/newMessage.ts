@@ -4,18 +4,27 @@ export namespace WsNewMessage {
   export const eventName: WsChat_FromServer.eventName = 'newMessage';
 
   export interface eventMessageTemplate {
-    messageId: number;
-    senderId: number;
-    chatId: number;
-    messageContent: string;
+    chat: {
+      chatId: number;
+      chatName: string;
+    };
+    sender: {
+      userId: number;
+      nickname: string;
+      avatarUrl: string | null;
+    };
+    message: {
+      messageId: number;
+      messageContent: string;
+    };
   }
 
   export class Dto implements WsChat_FromServer.template {
     public readonly message: eventMessageTemplate;
     public readonly eventName = eventName;
 
-    constructor({messageId, senderId, chatId, messageContent}: eventMessageTemplate) {
-      this.message = {messageId, senderId, chatId, messageContent};
+    constructor({chat, sender, message}: eventMessageTemplate) {
+      this.message = {chat, sender, message};
     }
   }
 }
