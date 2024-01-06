@@ -4,7 +4,6 @@ export namespace WsBallPosition {
   export const eventName: WsGame_FromServer.eventName = 'ballPosition';
 
   export interface eventMessageTemplate {
-    userId: number;
     gameId: number;
     ball_posX: number;
     ball_posY: number;
@@ -14,8 +13,8 @@ export namespace WsBallPosition {
     public readonly message: eventMessageTemplate;
     public readonly eventName = eventName;
 
-    constructor({userId, gameId, ball_posX, ball_posY}: eventMessageTemplate) {
-      this.message = {userId, gameId, ball_posX, ball_posY};
+    constructor({gameId, ball_posX, ball_posY}: eventMessageTemplate) {
+      this.message = {gameId, ball_posX, ball_posY};
     }
   }
 }
