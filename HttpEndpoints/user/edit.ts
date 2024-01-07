@@ -10,7 +10,7 @@ export namespace HttpEditMe {
   export class reqTemplate {
     public readonly email?: string;
     public readonly nickname?: string;
-    public readonly avatar?: string;
+    public readonly avatar?: File;
     public readonly password?: string;
     constructor({email, nickname, avatar, password}: reqTemplate) {
       if (!email && !nickname && !avatar && !password) throw new Error('empty body not allowed');

@@ -13,7 +13,7 @@ export namespace HttpUpdateInvitation {
     id: number,
   ) => `${HttpEndPointBase.INVITATION}${getEndPoint(kind, action, id)}`;
 
-  export interface reqTemplate {}
+  export class reqTemplate {}
 
   export class resTemplate {
     public readonly invitationId: number;
@@ -44,13 +44,8 @@ export namespace HttpUpdateInvitation {
   }
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
-    constructor(
-      kind: InvitationKind_Url,
-      action: InvitationAction_Url,
-      id: number,
-      req: reqTemplate,
-    ) {
-      super(getEndPointFull(kind, action, id), method, req, resTemplate);
+    constructor(kind: InvitationKind_Url, action: InvitationAction_Url, id: number) {
+      super(getEndPointFull(kind, action, id), method, reqTemplate, resTemplate);
     }
   }
 }

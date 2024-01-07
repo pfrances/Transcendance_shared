@@ -4,12 +4,11 @@ export interface ChatParticipation {
   role: Role;
   mutedUntil: Date | null;
   blockedUntil: Date | null;
-  hasLeaved: boolean;
 }
 
 export interface ChatOverview {
   chatId: number;
-  name: string;
+  chatName: string;
   chatAvatarUrl: string | null;
   hasPassword: boolean;
   participation: ChatParticipation | null;

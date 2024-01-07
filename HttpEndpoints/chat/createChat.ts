@@ -7,12 +7,12 @@ export namespace HttpCreateChat {
   export const endPointFull = `${HttpEndPointBase.CHAT}${endPoint}`;
 
   export class reqTemplate {
-    public readonly name: string;
+    public readonly chatName: string;
     public readonly chatAvatar?: File;
     public readonly password?: string;
 
     constructor(dto: reqTemplate) {
-      this.name = dto.name;
+      this.chatName = dto.chatName;
       this.chatAvatar = dto.chatAvatar;
       this.password = dto.password;
     }
