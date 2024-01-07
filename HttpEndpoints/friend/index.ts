@@ -1,6 +1,6 @@
 import {HttpEndPointBase} from '../enum';
 
-import {HttpRemoveFriend} from './removeFriend';
+import {HttpRemoveFriend} from './RemoveFriend';
 import {HttpGetFriendsList} from './getFriends';
 
 export {HttpGetFriendsList, HttpRemoveFriend};

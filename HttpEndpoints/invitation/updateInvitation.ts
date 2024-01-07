@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {InvitationAction_Url, InvitationKind, InvitationKind_Url, InvitationStatus} from '../types';
+import {InvitationAction_Url, InvitationKind_Url} from '../types';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpUpdateInvitation {
@@ -15,33 +15,7 @@ export namespace HttpUpdateInvitation {
 
   export class reqTemplate {}
 
-  export class resTemplate {
-    public readonly invitationId: number;
-    public readonly senderId: number;
-    public readonly receiverId: number;
-    public readonly status: InvitationStatus;
-    public readonly kind: InvitationKind;
-    public readonly targetChatId?: number;
-    public readonly targetGameId?: number;
-
-    constructor({
-      invitationId,
-      senderId,
-      receiverId,
-      status,
-      kind,
-      targetChatId,
-      targetGameId,
-    }: resTemplate) {
-      this.invitationId = invitationId;
-      this.senderId = senderId;
-      this.receiverId = receiverId;
-      this.status = status;
-      this.kind = kind;
-      this.targetChatId = targetChatId;
-      this.targetGameId = targetGameId;
-    }
-  }
+  export class resTemplate {}
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
     constructor(kind: InvitationKind_Url, action: InvitationAction_Url, id: number) {
