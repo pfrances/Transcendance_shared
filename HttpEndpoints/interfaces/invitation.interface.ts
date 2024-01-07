@@ -1,11 +1,24 @@
 import {InvitationKind, InvitationStatus} from '../types';
+import {UserPublicProfile} from './UserProfileInfo.interface';
 
-export interface Invitation {
+export type Invitation = {
   invitationId: number;
-  senderId: number;
-  receiverId: number;
+  sender: UserPublicProfile;
+  receiver: UserPublicProfile;
   status: InvitationStatus;
-  kind: InvitationKind;
-  targetChatId: number | null;
-  targetGameId: number | null;
-}
+} & (friendInvitationDetails | chatInvitationDetails | gameInvitationDetails);
+
+type friendInvitationDetails = {
+  kind: 'FRIEND';
+} & {kind: InvitationKind};
+
+type chatInvitationDetails = {
+  kind: 'CHAT';
+  targetChatId: number;
+  targetChatName: string;
+} & {kind: InvitationKind};
+
+type gameInvitationDetails = {
+  kind: 'GAME';
+  targetGameId: number;
+} & {kind: InvitationKind};

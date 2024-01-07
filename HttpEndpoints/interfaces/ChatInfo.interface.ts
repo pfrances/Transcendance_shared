@@ -1,6 +1,7 @@
 export type Role = 'ADMIN' | 'MEMBER';
 
 export interface ChatParticipation {
+  userId: number;
   role: Role;
   mutedUntil: Date | null;
   blockedUntil: Date | null;
