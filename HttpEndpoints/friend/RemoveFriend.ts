@@ -1,5 +1,4 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {FriendPublicProfilesList} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpRemoveFriend {
@@ -15,17 +14,7 @@ export namespace HttpRemoveFriend {
     }
   }
 
-  export class resTemplate {
-    public readonly friendsProfiles: {
-      userId: number;
-      nickname: string;
-      avatarUrl: string | null;
-    }[];
-
-    constructor(friendsProfiles: FriendPublicProfilesList) {
-      this.friendsProfiles = friendsProfiles.friendsProfiles;
-    }
-  }
+  export class resTemplate {}
 
   export class requestSender extends ARequestSender<reqTemplate, resTemplate> {
     constructor(req: reqTemplate) {

@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {FriendPublicProfilesList} from '../interfaces';
+import {UserPublicProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetFriendsList {
@@ -10,14 +10,10 @@ export namespace HttpGetFriendsList {
   export class reqTemplate {}
 
   export class resTemplate {
-    public readonly friendsProfiles: {
-      userId: number;
-      nickname: string;
-      avatarUrl: string | null;
-    }[];
+    public readonly friendsProfiles: UserPublicProfile[];
 
-    constructor(friendsProfiles: FriendPublicProfilesList) {
-      this.friendsProfiles = friendsProfiles.friendsProfiles;
+    constructor(friendsProfiles: UserPublicProfile[]) {
+      this.friendsProfiles = friendsProfiles;
     }
   }
 
