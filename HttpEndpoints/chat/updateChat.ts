@@ -10,7 +10,7 @@ export namespace HttpUpdateChat {
 
   export class reqTemplate {
     public readonly chatName?: string;
-    public readonly password?: string;
+    public readonly password?: string | null;
     public readonly chatAvatar?: File;
 
     constructor(data: HttpUpdateChat.reqTemplate) {

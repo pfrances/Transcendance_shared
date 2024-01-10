@@ -27,4 +27,5 @@ export interface ChatMessage {
 export interface ChatInfo {
   chatOverview: ChatOverview;
   chatMessages: ChatMessage[];
+  otherParticipations: ChatParticipation[];
 }

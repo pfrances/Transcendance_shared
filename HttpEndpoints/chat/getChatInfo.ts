@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {ChatInfo, ChatMessage, ChatOverview} from '../interfaces';
+import {ChatInfo, ChatMessage, ChatOverview, ChatParticipation} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetChatInfo {
@@ -14,10 +14,12 @@ export namespace HttpGetChatInfo {
   export class resTemplate {
     public readonly chatOverview: ChatOverview;
     public readonly chatMessages: ChatMessage[];
+    public readonly otherParticipations: ChatParticipation[];
 
     constructor(chatInfo: ChatInfo) {
       this.chatOverview = chatInfo.chatOverview;
       this.chatMessages = chatInfo.chatMessages;
+      this.otherParticipations = chatInfo.otherParticipations;
     }
   }
 
