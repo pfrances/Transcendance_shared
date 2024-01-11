@@ -12,8 +12,8 @@ export namespace HttpUpdateChatParticipation {
   export class reqTemplate {
     public readonly userId: number;
     public readonly role?: Role;
-    public readonly mutedUntil?: Date;
-    public readonly blockedUntil?: Date;
+    public readonly mutedUntil?: Date | null;
+    public readonly blockedUntil?: Date | null;
     public readonly kick?: boolean;
 
     constructor(data: reqTemplate) {

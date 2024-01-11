@@ -2,21 +2,39 @@ import {WsNewMessage} from './newMessage';
 import {WsSendMessage} from './sendMessage';
 import {WsChatJoin} from './chatJoin';
 import {WsChatLeave} from './chatLeave';
+import {WsChatUpdate} from './chatUpdate';
+import {WsChatParticipationUpdate} from './chatParticipationUpdate';
 import {WsEvents} from '..';
 
-export {WsNewMessage, WsSendMessage, WsChatJoin, WsChatLeave};
+export {
+  WsNewMessage,
+  WsSendMessage,
+  WsChatJoin,
+  WsChatLeave,
+  WsChatUpdate,
+  WsChatParticipationUpdate,
+};
 
 export namespace WsChat_FromServer {
   export import newMessage = WsNewMessage;
   export import chatJoin = WsChatJoin;
   export import chatLeave = WsChatLeave;
+  export import chatUpdate = WsChatUpdate;
+  export import chatParticipationUpdate = WsChatParticipationUpdate;
 
-  export type eventName = 'chatJoin' | 'chatLeave' | 'newMessage';
+  export type eventName =
+    | 'chatJoin'
+    | 'chatLeave'
+    | 'newMessage'
+    | 'chatUpdate'
+    | 'chatParticipationUpdate';
 
   export type messageTemplate =
     | newMessage.eventMessageTemplate
     | chatJoin.eventMessageTemplate
-    | chatLeave.eventMessageTemplate;
+    | chatLeave.eventMessageTemplate
+    | chatUpdate.eventMessageTemplate
+    | chatParticipationUpdate.eventMessageTemplate;
 
   export interface template extends WsEvents.FromServer.template {
     eventName: eventName;

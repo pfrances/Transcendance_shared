@@ -4,15 +4,19 @@ export namespace WsFriendConnection {
   export const eventName: WsFriend_FromServer.eventName = 'friendConnection';
 
   export interface eventMessageTemplate {
-    friendId: number;
+    friend: {
+      userId: number;
+      nickname: string;
+      avatarUrl: string | null;
+    };
   }
 
   export class Dto implements WsFriend_FromServer.template {
     public readonly message: eventMessageTemplate;
     public readonly eventName = eventName;
 
-    constructor({friendId}: eventMessageTemplate) {
-      this.message = {friendId};
+    constructor(msg: eventMessageTemplate) {
+      this.message = msg;
     }
   }
 }
