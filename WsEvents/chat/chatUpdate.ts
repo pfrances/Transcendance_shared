@@ -1,9 +1,11 @@
 import {WsChat_FromServer} from '.';
 
-export type WsUpdateChatAction = {
-  updateName: boolean;
-  updateAvatar: boolean;
-} & ({updatePassword: boolean} | {removePassword: boolean});
+export type WsUpdateChatAction =
+  | ({
+      updateName: boolean;
+      updateAvatar: boolean;
+    } & ({updatePassword: boolean} | {removePassword: boolean}))
+  | {newChat: boolean};
 
 export namespace WsChatUpdate {
   export const eventName: WsChat_FromServer.eventName = 'chatUpdate';

@@ -9,21 +9,11 @@ export namespace HttpSendInvitation {
   export const getEndPointFull = (kind: InvitationKind_Url) =>
     `${HttpEndPointBase.INVITATION}${getEndPoint(kind)}`;
 
-  export interface Friend_reqTemplate {
+  export interface reqTemplate {
     targetUserId: number;
+    targetChatId?: number;
+    targetGameId?: number;
   }
-
-  export interface Chat_reqTemplate {
-    targetUserId: number;
-    targetChatId: number;
-  }
-
-  export interface Game_reqTemplate {
-    targetUserId: number;
-    targetGameId: number;
-  }
-
-  export type reqTemplate = Friend_reqTemplate | Chat_reqTemplate | Game_reqTemplate;
 
   export class resTemplate {}
 
