@@ -2,6 +2,7 @@ import {HttpEndPointBase} from '../enum';
 import {HttpCreateChat} from './createChat';
 import {HttpGetAllChats} from './getAllChats';
 import {HttpGetChatInfo} from './getChatInfo';
+import {HttpGetDirectMessages} from './getDirectMessages';
 import {HttpJoinChat} from './joinChat';
 import {HttpLeaveChat} from './leaveChat';
 import {HttpUpdateChat} from './updateChat';
@@ -15,6 +16,7 @@ export {
   HttpLeaveChat,
   HttpUpdateChat,
   HttpUpdateChatParticipation,
+  HttpGetDirectMessages,
 };
 
 export namespace HttpChat {
@@ -25,6 +27,7 @@ export namespace HttpChat {
   export import leave = HttpLeaveChat;
   export import update = HttpUpdateChat;
   export import updateParticipation = HttpUpdateChatParticipation;
+  export import getDirectMessages = HttpGetDirectMessages;
 
   export const endPointBase = HttpEndPointBase.CHAT;
 
@@ -35,7 +38,8 @@ export namespace HttpChat {
     | join.reqTemplate
     | leave.reqTemplate
     | update.reqTemplate
-    | updateParticipation.reqTemplate;
+    | updateParticipation.reqTemplate
+    | getDirectMessages.reqTemplate;
 
   export type resTemplate =
     | getAll.resTemplate
@@ -44,7 +48,8 @@ export namespace HttpChat {
     | join.resTemplate
     | leave.resTemplate
     | update.resTemplate
-    | updateParticipation.resTemplate;
+    | updateParticipation.resTemplate
+    | getDirectMessages.resTemplate;
 
   export type requestSender =
     | getAll.requestSender
@@ -53,5 +58,6 @@ export namespace HttpChat {
     | join.requestSender
     | leave.requestSender
     | update.requestSender
-    | updateParticipation.requestSender;
+    | updateParticipation.requestSender
+    | getDirectMessages.requestSender;
 }

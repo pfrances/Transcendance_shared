@@ -11,12 +11,14 @@ export namespace HttpUpdateChat {
   export class reqTemplate {
     public readonly chatName?: string;
     public readonly password?: string | null;
+    public readonly isPrivate?: boolean;
     public readonly chatAvatar?: File;
 
-    constructor(data: HttpUpdateChat.reqTemplate) {
+    constructor(data: reqTemplate) {
       this.chatName = data.chatName;
       this.password = data.password;
       this.chatAvatar = data.chatAvatar;
+      this.isPrivate = data.isPrivate;
     }
   }
 

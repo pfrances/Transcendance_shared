@@ -1,10 +1,11 @@
-export type Role = 'ADMIN' | 'MEMBER';
+import {UserPublicProfile} from './UserProfileInfo.interface';
+
+export type Role = 'OWNER' | 'ADMIN' | 'MEMBER';
 
 export interface ChatParticipation {
   userId: number;
   role: Role;
   mutedUntil: Date | null;
-  blockedUntil: Date | null;
 }
 
 export interface ChatOverview {
@@ -13,6 +14,7 @@ export interface ChatOverview {
   chatAvatarUrl: string | null;
   hasPassword: boolean;
   participation: ChatParticipation | null;
+  isPrivate: boolean;
 }
 
 export interface ChatMessage {
@@ -22,6 +24,18 @@ export interface ChatMessage {
   messageId: number;
   createdAt: Date;
   messageContent: string;
+}
+
+export interface DirectMessage {
+  senderId: number;
+  messageId: number;
+  createdAt: Date;
+  messageContent: string;
+}
+
+export interface DirectMessageInfo {
+  userProfile: UserPublicProfile;
+  messages: DirectMessage[];
 }
 
 export interface ChatInfo {

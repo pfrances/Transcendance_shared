@@ -13,14 +13,12 @@ export namespace HttpUpdateChatParticipation {
     public readonly userId: number;
     public readonly role?: Role;
     public readonly mutedUntil?: Date | null;
-    public readonly blockedUntil?: Date | null;
     public readonly kick?: boolean;
 
     constructor(data: reqTemplate) {
       this.userId = data.userId;
       this.role = data.role;
       this.mutedUntil = data.mutedUntil;
-      this.blockedUntil = data.blockedUntil;
       this.kick = data.kick;
     }
   }

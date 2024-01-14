@@ -4,7 +4,7 @@ export type WsUpdateChatAction =
   | ({
       updateName: boolean;
       updateAvatar: boolean;
-    } & ({updatePassword: boolean} | {removePassword: boolean}))
+    } & ({updatePassword: boolean} | {removePassword: boolean}) & {updatePrivacy: boolean})
   | {newChat: boolean};
 
 export namespace WsChatUpdate {

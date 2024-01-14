@@ -11,6 +11,7 @@ export namespace HttpCreateChat {
     public readonly chatName: string;
     public readonly chatAvatar?: File;
     public readonly password?: string;
+    public readonly isPrivate?: boolean;
 
     constructor(dto: reqTemplate) {
       this.chatName = dto.chatName;

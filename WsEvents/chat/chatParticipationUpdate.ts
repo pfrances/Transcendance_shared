@@ -4,7 +4,8 @@ export type WsUpdateChatParticipationAction =
   | ({
       changeRole: boolean;
     } & ({mute: boolean} | {unmute: boolean}))
-  | {kick: boolean};
+  | {kick: boolean}
+  | {ban: boolean};
 
 export namespace WsChatParticipationUpdate {
   export const eventName: WsChat_FromServer.eventName = 'chatParticipationUpdate';
