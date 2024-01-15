@@ -1,32 +1,29 @@
-import {HttpEndPointBase, HttpMethod} from '../enum';
+import {HttpMethod, HttpEndPointBase} from '../enum';
+import {UserPrivateProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
-export namespace HttpSignUp {
+export namespace HttpAuth42VerifyCode {
   export const method = HttpMethod.POST;
-  export const endPoint = '/signup';
+  export const endPoint = '/42/verifyCode/';
   export const endPointFull = `${HttpEndPointBase.AUTH}${endPoint}`;
 
   export class reqTemplate {
-    public readonly nickname: string;
-    public readonly email: string;
-    public readonly password: string;
-    public readonly avatar?: File;
+    public readonly code: string;
+    public readonly userId: number;
 
-    constructor(dto: reqTemplate) {
-      this.nickname = dto.nickname;
-      this.email = dto.email;
-      this.password = dto.password;
-      this.avatar = dto.avatar;
+    constructor({code, userId}: reqTemplate) {
+      this.code = code;
+      this.userId = userId;
     }
   }
 
   export class resTemplate {
-    public readonly userId: number;
+    public readonly userInfo: UserPrivateProfile;
     public readonly authToken: string;
     public readonly refreshToken: string;
 
     constructor(dto: resTemplate) {
-      this.userId = dto.userId;
+      this.userInfo = dto.userInfo;
       this.authToken = dto.authToken;
       this.refreshToken = dto.refreshToken;
     }

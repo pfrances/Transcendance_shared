@@ -40,10 +40,11 @@ export namespace WsEvents_FromServer {
 export namespace WsEvents_FromClient {
   export import Chat = WsChat.FromClient;
   export import Game = WsGame.FromClient;
+  export import User = WsUser.FromClient;
 
-  export type eventName = Chat.eventName | Game.eventName;
+  export type eventName = Chat.eventName | Game.eventName | User.eventName;
 
-  export type messageTemplate = Chat.messageTemplate | Game.messageTemplate;
+  export type messageTemplate = Chat.messageTemplate | Game.messageTemplate | User.messageTemplate;
 
   export interface template {
     eventName: eventName;

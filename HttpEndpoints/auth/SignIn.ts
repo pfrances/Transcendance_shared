@@ -18,11 +18,15 @@ export namespace HttpSignIn {
 
   export class resTemplate {
     public readonly userId: number;
-    public readonly auth2FACode: string;
+    public readonly auth2FACode?: string;
+    public readonly authToken?: string;
+    public readonly refreshToken?: string;
 
     constructor(dto: resTemplate) {
       this.userId = dto.userId;
       this.auth2FACode = dto.auth2FACode;
+      this.authToken = dto.authToken;
+      this.refreshToken = dto.refreshToken;
     }
   }
 

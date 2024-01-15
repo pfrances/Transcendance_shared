@@ -9,13 +9,5 @@ export namespace HttpAuth42 {
 
   export class reqTemplate {}
 
-  export class resTemplate {
-    public readonly userId: number;
-    public readonly auth2FACode: string;
-
-    constructor(dto: resTemplate) {
-      this.userId = dto.userId;
-      this.auth2FACode = dto.auth2FACode;
-    }
-  }
+  export class resTemplate {} //redirect to front auth
 }
