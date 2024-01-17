@@ -17,6 +17,7 @@ export namespace HttpGetUser {
     public readonly avatarUrl: string | null;
     public readonly isOnline: boolean;
     public readonly isBlocked: boolean;
+    public readonly hasBlockedMe: boolean;
     public readonly isFriend: boolean;
     public readonly status: string;
 
@@ -26,6 +27,7 @@ export namespace HttpGetUser {
       avatarUrl,
       isOnline,
       isBlocked,
+      hasBlockedMe,
       isFriend,
       status,
     }: UserPublicProfileRegardingMe) {
@@ -34,6 +36,7 @@ export namespace HttpGetUser {
       this.avatarUrl = avatarUrl;
       this.isOnline = isOnline;
       this.isBlocked = isBlocked;
+      this.hasBlockedMe = hasBlockedMe;
       this.isFriend = isFriend;
       this.status = status;
     }

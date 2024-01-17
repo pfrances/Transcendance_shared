@@ -20,6 +20,7 @@ export interface UserStatus {
 }
 
 export type UserPublicProfileRegardingMe = UserPublicProfile & {
+  hasBlockedMe: boolean;
   isBlocked: boolean;
   isFriend: boolean;
 } & UserStatus;

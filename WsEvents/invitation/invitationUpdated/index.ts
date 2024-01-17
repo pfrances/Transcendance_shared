@@ -1,4 +1,4 @@
-import {InvitationStatus} from 'src/shared/HttpEndpoints/types';
+import {InvitationStatus} from '../../../HttpEndpoints/types';
 import {WsEvents_FromServer} from '../..';
 import {WsInvitationAccepted} from './invitationAccepted';
 import {WsInvitationCanceled} from './invitationCanceled';

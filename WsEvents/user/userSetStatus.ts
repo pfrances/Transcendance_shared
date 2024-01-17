@@ -1,4 +1,4 @@
-import {UserStatusType} from 'src/shared/HttpEndpoints/interfaces';
+import {UserStatusType} from '../../HttpEndpoints/interfaces';
 import {WsUser_FromClient} from '.';
 
 export namespace WsSetUserStatus {
