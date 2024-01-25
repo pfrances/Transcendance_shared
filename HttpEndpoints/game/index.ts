@@ -5,6 +5,7 @@ import {HttpGameUpdateInCreation} from './updateGameInCreation';
 import {HttpGameAcceptInCreation} from './acceptGameInCreation';
 import {HttpGetGameInCreation} from './getGameInCreation';
 import {HttpGetMatchMakingInfo} from './getMatchMakingInfo';
+import {HttpGetMatchHistory} from './getMatchHistory';
 
 export {
   HttpGameJoinWaitList,
@@ -13,6 +14,7 @@ export {
   HttpGameAcceptInCreation,
   HttpGetGameInCreation,
   HttpGetMatchMakingInfo,
+  HttpGetMatchHistory,
 };
 
 export namespace HttpGame {
@@ -22,6 +24,7 @@ export namespace HttpGame {
   export import acceptInCreation = HttpGameAcceptInCreation;
   export import getInCreation = HttpGetGameInCreation;
   export import getMatchMakingInfo = HttpGetMatchMakingInfo;
+  export import getMatchHistory = HttpGetMatchHistory;
 
   export const endPointBase = HttpEndPointBase.GAME;
 
@@ -31,7 +34,8 @@ export namespace HttpGame {
     | updateInCreation.reqTemplate
     | acceptInCreation.reqTemplate
     | getInCreation.reqTemplate
-    | getMatchMakingInfo.reqTemplate;
+    | getMatchMakingInfo.reqTemplate
+    | getMatchHistory.reqTemplate;
 
   export type resTemplate =
     | joinWaitList.resTemplate
@@ -39,7 +43,8 @@ export namespace HttpGame {
     | updateInCreation.resTemplate
     | acceptInCreation.resTemplate
     | getInCreation.resTemplate
-    | getMatchMakingInfo.resTemplate;
+    | getMatchMakingInfo.resTemplate
+    | getMatchHistory.resTemplate;
 
   export type requestSender =
     | joinWaitList.requestSender
@@ -47,5 +52,6 @@ export namespace HttpGame {
     | updateInCreation.requestSender
     | acceptInCreation.requestSender
     | getInCreation.requestSender
-    | getMatchMakingInfo.requestSender;
+    | getMatchMakingInfo.requestSender
+    | getMatchHistory.requestSender;
 }

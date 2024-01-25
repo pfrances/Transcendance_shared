@@ -1,7 +1,6 @@
 import {WsGameJoin} from './gameJoin';
 import {WsGameLeave} from './gameLeave';
-import {WsNewPlayerMove} from './newPlayerMove';
-import {WsBallPosition} from './ballPosition';
+import {WsGameStateUpdatePosition} from './gameStateUpdate';
 import {WsSendPlayerMove} from './sendPlayerMove';
 import {WsGameInCreationChange} from './inCreationChange';
 import {WsGameMatch} from './gameMatch';
@@ -11,9 +10,8 @@ import {WsEvents} from '..';
 export {
   WsGameJoin,
   WsGameLeave,
-  WsNewPlayerMove,
-  WsBallPosition,
   WsSendPlayerMove,
+  WsGameStateUpdatePosition,
   WsGameInCreationChange,
   WsGameMatch,
   WsGameStart,
@@ -22,8 +20,7 @@ export {
 export namespace WsGame_FromServer {
   export import gameJoin = WsGameJoin;
   export import gameLeave = WsGameLeave;
-  export import newPlayerMove = WsNewPlayerMove;
-  export import ballPosition = WsBallPosition;
+  export import stateUpdate = WsGameStateUpdatePosition;
   export import gameInCreationChange = WsGameInCreationChange;
   export import gameMatch = WsGameMatch;
   export import gameStart = WsGameStart;
@@ -31,8 +28,7 @@ export namespace WsGame_FromServer {
   export type eventName =
     | 'gameJoin'
     | 'gameLeave'
-    | 'newPlayerMove'
-    | 'ballPosition'
+    | 'gameStateUpdate'
     | 'gameInCreationChange'
     | 'gameMatch'
     | 'gameStart';
@@ -40,8 +36,7 @@ export namespace WsGame_FromServer {
   export type messageTemplate =
     | gameJoin.eventMessageTemplate
     | gameLeave.eventMessageTemplate
-    | newPlayerMove.eventMessageTemplate
-    | ballPosition.eventMessageTemplate
+    | stateUpdate.eventMessageTemplate
     | gameInCreationChange.eventMessageTemplate
     | gameMatch.eventMessageTemplate
     | gameStart.eventMessageTemplate;

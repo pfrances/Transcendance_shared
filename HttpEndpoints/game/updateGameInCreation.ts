@@ -1,4 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
+import {BallSize, BallSpeed, PaddleSize, PaddleSpeed} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGameUpdateInCreation {
@@ -10,9 +11,17 @@ export namespace HttpGameUpdateInCreation {
 
   export class reqTemplate {
     public readonly scoreToWin: number;
+    public readonly ballSpeed: BallSpeed;
+    public readonly ballSize: BallSize;
+    public readonly paddleSpeed: PaddleSpeed;
+    public readonly paddleSize: PaddleSize;
 
-    constructor({scoreToWin}: reqTemplate) {
+    constructor({scoreToWin, ballSpeed, ballSize, paddleSpeed, paddleSize}: reqTemplate) {
       this.scoreToWin = scoreToWin;
+      this.ballSpeed = ballSpeed;
+      this.ballSize = ballSize;
+      this.paddleSpeed = paddleSpeed;
+      this.paddleSize = paddleSize;
     }
   }
 

@@ -4,17 +4,16 @@ export namespace WsSendPlayerMove {
   export const eventName: WsGame_FromClient.eventName = 'sendPlayerMove';
 
   export interface eventMessageTemplate {
-    userId: number;
     gameId: number;
-    paddle_pos: number;
+    direction: 'up' | 'down';
   }
 
   export class Dto implements WsGame_FromClient.Template {
     public readonly message: eventMessageTemplate;
     public readonly eventName = eventName;
 
-    constructor({userId, gameId, paddle_pos}: eventMessageTemplate) {
-      this.message = {userId, gameId, paddle_pos};
+    constructor(msg: eventMessageTemplate) {
+      this.message = msg;
     }
   }
 }
