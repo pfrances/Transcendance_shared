@@ -70,7 +70,6 @@ export type Ball = {
 };
 
 export type Player = {
-  userId: number;
   paddlePos: number;
   score: number;
 };
@@ -94,8 +93,8 @@ export type GameInProgressData = {
   gameId: number;
   status: Omit<GameStatus, 'IN_CREATION'>;
   rules: GameRules;
-  playerOne: GameInProgressPlayerData;
-  playerTwo: GameInProgressPlayerData;
+  player1: GameInProgressPlayerData;
+  player2: GameInProgressPlayerData;
 
   ballPositionX: number;
   ballPositionY: number;
@@ -111,19 +110,19 @@ export type GameInCreationData = {
   gameInCreationId: number;
   status: 'IN_CREATION' | 'IN_PROGRESS';
   rules: GameRules;
-  playerOne: GameInCreationPlayerData;
-  playerTwo: GameInCreationPlayerData;
+  player1: GameInCreationPlayerData;
+  player2: GameInCreationPlayerData;
 };
 
 /*        GAME History        */
 export type GameHistory = {
   gameId: number;
   winnerId?: number;
-  playerOne: {
+  player1: {
     profile: UserPublicProfile;
     score: number;
   };
-  playerTwo: {
+  player2: {
     profile: UserPublicProfile;
     score: number;
   };

@@ -1,16 +1,14 @@
-import {Ball, GameRules, GameStatus, Player} from '../../HttpEndpoints/interfaces';
+import {Ball, GameStatus, Player} from '../../HttpEndpoints/interfaces';
 import {WsGame_FromServer} from '.';
 
 export namespace WsGameStateUpdatePosition {
   export const eventName: WsGame_FromServer.eventName = 'gameStateUpdate';
 
   export interface eventMessageTemplate {
-    gameId: number;
     ball: Ball;
     player1: Player;
     player2: Player;
     status: Omit<GameStatus, 'IN_CREATION'>;
-    rules: GameRules;
     countdown?: number;
   }
 
