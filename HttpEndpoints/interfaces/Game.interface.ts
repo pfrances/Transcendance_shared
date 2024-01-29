@@ -8,6 +8,7 @@ export type GameMatchMakingStatus =
   | 'IN_GAME';
 
 export interface GameMatchMakingInfo {
+  lastGameId?: number;
   status: GameMatchMakingStatus;
   gameInCreationId?: number;
   gameId?: number;
