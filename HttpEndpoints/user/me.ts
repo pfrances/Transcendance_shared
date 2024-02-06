@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {UserPrivateProfile} from '../interfaces';
+import {Achievement, UserPrivateProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetMe {
@@ -15,13 +15,15 @@ export namespace HttpGetMe {
     public readonly email: string;
     public readonly avatarUrl: string | null;
     public readonly hasSet2Fa: boolean;
+    public readonly achievements: Achievement[];
 
-    constructor({userId, nickname, email, avatarUrl, hasSet2Fa}: UserPrivateProfile) {
+    constructor({userId, nickname, email, avatarUrl, hasSet2Fa, achievements}: UserPrivateProfile) {
       this.userId = userId;
       this.nickname = nickname;
       this.email = email;
       this.avatarUrl = avatarUrl;
       this.hasSet2Fa = hasSet2Fa;
+      this.achievements = achievements;
     }
   }
 

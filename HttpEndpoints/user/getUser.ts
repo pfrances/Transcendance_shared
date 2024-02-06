@@ -1,5 +1,5 @@
 import {HttpEndPointBase, HttpMethod} from '../enum';
-import {UserPublicProfileRegardingMe} from '../interfaces';
+import {Achievement, UserPublicProfileRegardingMe} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
 
 export namespace HttpGetUser {
@@ -20,6 +20,7 @@ export namespace HttpGetUser {
     public readonly hasBlockedMe: boolean;
     public readonly isFriend: boolean;
     public readonly status: string;
+    public readonly achievements: Achievement[];
 
     constructor({
       userId,
@@ -30,6 +31,7 @@ export namespace HttpGetUser {
       hasBlockedMe,
       isFriend,
       status,
+      achievements,
     }: UserPublicProfileRegardingMe) {
       this.userId = userId;
       this.nickname = nickname;
@@ -39,6 +41,7 @@ export namespace HttpGetUser {
       this.hasBlockedMe = hasBlockedMe;
       this.isFriend = isFriend;
       this.status = status;
+      this.achievements = achievements;
     }
   }
 
