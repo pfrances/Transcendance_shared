@@ -5,7 +5,13 @@ export interface UserPublicProfile {
   isOnline: boolean;
 }
 
-export type UserStatusType = 'offline' | 'waitingForGame' | 'onGame' | 'onChat' | 'chilling';
+export type UserStatusType =
+  | 'offline'
+  | 'waitingForGame'
+  | 'onGame'
+  | 'lookingForChat'
+  | 'onChat'
+  | 'chilling';
 
 export interface UserStatus {
   status: UserStatusType;

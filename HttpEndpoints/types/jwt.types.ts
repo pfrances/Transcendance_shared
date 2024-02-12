@@ -1,4 +1,4 @@
 export type JwtData = {
   token: string;
-  expiresAt: Date;
+  expiresAt: number;
 };
