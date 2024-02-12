@@ -1,5 +1,6 @@
 import {ARequestSender} from '../interfaces/ARequestSender';
 import {HttpMethod, HttpEndPointBase} from '../enum';
+import {JwtData} from '../types';
 
 export namespace HttpSignIn {
   export const method = HttpMethod.POST;
@@ -19,8 +20,8 @@ export namespace HttpSignIn {
   export class resTemplate {
     public readonly userId: number;
     public readonly auth2FACode?: string;
-    public readonly authToken?: string;
-    public readonly refreshToken?: string;
+    public readonly authToken?: JwtData;
+    public readonly refreshToken?: JwtData;
 
     constructor(dto: resTemplate) {
       this.userId = dto.userId;

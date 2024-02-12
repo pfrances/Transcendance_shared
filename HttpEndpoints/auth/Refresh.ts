@@ -1,5 +1,6 @@
 import {ARequestSender} from '../interfaces/ARequestSender';
 import {HttpMethod, HttpEndPointBase} from '../enum';
+import {JwtData} from '../types';
 
 export namespace HttpRefresh {
   export const method = HttpMethod.POST;
@@ -17,8 +18,8 @@ export namespace HttpRefresh {
   }
 
   export class resTemplate {
-    public readonly authToken: string;
-    public readonly refreshToken: string;
+    public readonly authToken: JwtData;
+    public readonly refreshToken: JwtData;
 
     constructor({authToken, refreshToken}: resTemplate) {
       this.authToken = authToken;

@@ -1,6 +1,7 @@
 import {HttpMethod, HttpEndPointBase} from '../enum';
 import {UserPrivateProfile} from '../interfaces';
 import {ARequestSender} from '../interfaces/ARequestSender';
+import {JwtData} from '../types';
 
 export namespace HttpAuth42VerifyCode {
   export const method = HttpMethod.POST;
@@ -19,8 +20,8 @@ export namespace HttpAuth42VerifyCode {
 
   export class resTemplate {
     public readonly userInfo: UserPrivateProfile;
-    public readonly authToken: string;
-    public readonly refreshToken: string;
+    public readonly authToken: JwtData;
+    public readonly refreshToken: JwtData;
 
     constructor(dto: resTemplate) {
       this.userInfo = dto.userInfo;
